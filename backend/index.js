@@ -5,7 +5,7 @@ var fs = require("fs");
 var bodyParser = require("body-parser");
 const { MongoClient } = require("mongodb");
 const url = "mongodb://127.0.0.1:27017";
-const dbName = "secoms319_final_97";
+const dbName = "team97_final";
 const client = new MongoClient(url);
 const db = client.db(dbName);
 
@@ -19,12 +19,12 @@ app.listen(port, () => {
     console.log("App listening at http://%s:%s", host, port);
 });
 
-app.get("/video_games", async (req, res) => {
+app.get("/reviews", async (req, res) => {
     await client.connect();
     console.log("Node connected successfully to GET MongoDB");
     const query = {};
     const results = await db
-        .collection("video_games")
+        .collection("reviews")
         .find(query)
         .limit(100)
         .toArray();
@@ -33,7 +33,7 @@ app.get("/video_games", async (req, res) => {
     res.send(results);
 });
 
-app.get("/video_games/:id", async (req, res) => {
+app.get("/reviews/:id", async (req, res) => {
     const productid = Number(req.params.id);
     console.log("Game to find :", productid);
     await client.connect();
@@ -41,7 +41,7 @@ app.get("/video_games/:id", async (req, res) => {
     console.log("Node connected successfully to GET-id MongoDB");
 
     const query = {"id": productid };
-    const results = await db.collection("video_games")
+    const results = await db.collection("reviews")
     .findOne(query);
     
     console.log("Results :", results);
@@ -49,7 +49,7 @@ app.get("/video_games/:id", async (req, res) => {
     else res.send(results).status(200);
 });
 
-app.post("/video_games", async (req, res) => {
+app.post("/reviews", async (req, res) => {
     try{
         await client.connect();
         const keys = Object.keys(req.body);
@@ -62,7 +62,7 @@ app.post("/video_games", async (req, res) => {
         };
         console.log(newDocument);
         const results = await db
-            .collection("video_games")
+            .collection("reviews")
             .insertOne(newDocument);
         res.status(200);
         res.send(results);
@@ -72,16 +72,16 @@ app.post("/video_games", async (req, res) => {
     }
 });
 
-app.delete("/video_games/:id", async (req, res) =>{
+app.delete("/reviews/:id", async (req, res) =>{
     try{
         const id = Number(req.params.id);
         await client.connect();
-        console.log("Product to delete: ", id);
+        console.log("Review to delete: ", id);
         const query = {id: id};
-        const productDeleted = await db.collection("video_games")
+        const productDeleted = await db.collection("reviews")
         .findOne(query);
 
-        const results = await db.collection("video_games").deleteOne(query);
+        const results = await db.collection("reviews").deleteOne(query);
         res.status(200);
         res.send(productDeleted);
     }catch(error){
@@ -90,7 +90,7 @@ app.delete("/video_games/:id", async (req, res) =>{
     }
 });
 
-app.put("/video_games/:id", async (req, res) => {
+app.put("/reviews/:id", async (req, res) => {
     const id = Number(req.params.id);
     const query = { id: id };
     await client.connect();
@@ -106,7 +106,7 @@ app.put("/video_games/:id", async (req, res) => {
     };
     // Add options if needed, for example { upsert: true } to create a document if it doesn't exist
     const options = { };
-    const results = await db.collection("video_games").updateOne(query, updateData, options);
+    const results = await db.collection("reviews").updateOne(query, updateData, options);
     res.status(200);
     res.send(results);
 });
