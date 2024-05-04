@@ -1,122 +1,124 @@
-[
-    {
-       "id": 1,
-       "title": "Helldivers 2",
-       "year": 2024,
-       "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e7/Helldivers2cover.png"
-    },
-    {
-       "id": 2,
-       "title": "Minecraft",
-       "year": 2011,
-       "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
-    },
-    {
-       "id": 3,
-       "title": "Legend of Zelda, Breath of the Wild",
-       "year": 2017,
-       "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg"
-    },
-    {
-        "id": 4,
-        "title": "Fallout 4",
-        "year": 2015,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/70/Fallout_4_cover_art.jpg"
-    },
-    {
-        "id": 5,
-        "title": "Persona 3 Reload",
+{
+    "gamesList":[
+        {
+        "id": 1,
+        "title": "Helldivers 2",
         "year": 2024,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/65/Persona_3_Reload_box_art.jpg"
-    },
-    {
-        "id": 6,
-        "title": "Baldur's Gate 3",
-        "year": 2023,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/12/Baldur%27s_Gate_3_cover_art.jpg"
-    },
-    {
-        "id": 7,
-        "title": "Guilty Gear Strive",
-        "year": 2021,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7d/Guilty_Gear_Strive.jpg"
-    },
-    {
-        "id": 8,
-        "title": "Terraria",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e7/Helldivers2cover.png"
+        },
+        {
+        "id": 2,
+        "title": "Minecraft",
         "year": 2011,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/1a/Terraria_Steam_artwork.jpg"
-    },
-    {
-        "id": 9,
-        "title": "Grand Theft Auto V",
-        "year": 2013,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png"
-    },
-    {
-        "id": 10,
-        "title": "Team Fortress 2",
-        "year": 2007,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5f/Tf2_standalonebox.jpg"
-    },
-    {
-        "id": 11,
-        "title": "Elden Ring",
-        "year": 2022,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg"
-    },
-    {
-        "id": 12,
-        "title": "Palworld",
-        "year": 2024,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/Palworld_Steam_artwork.jpg"
-    },
-    {
-        "id": 13,
-        "title": "Dead by Daylight",
-        "year": 2016,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b7/Dead_by_Daylight_Steam_header.jpg"
-    },
-    {
-        "id": 14,
-        "title": "The Sims 4",
-        "year": 2014,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7f/Sims4_Rebrand.png"
-    },
-    {
-        "id": 15,
-        "title": "Don't Starve",
-        "year": 2013,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d2/Don%27t_Starve_cover.jpg"
-    },
-    {
-        "id": 16,
-        "title": "Red Dead Redemption 2",
-        "year": 2019,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"
-    },
-    {
-        "id": 17,
-        "title": "Lethal Company",
-        "year": 2023,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/Lethal_Company_Steam_cover.jpg"
-    },
-    {
-        "id": 18,
-        "title": "Rocket League",
-        "year": 2015,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rocket_League_coverart.jpg/330px-Rocket_League_coverart.jpg"
-    },
-    {
-        "id": 19,
-        "title": "Project Zomboid",
-        "year": 2013,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/0c/Boxshot_of_video_game_Project_zomboid.jpg"
-    },
-    {
-        "id": 20,
-        "title": "Cyberpunk 2077",
-        "year": 2020,
-        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
-    }
-]
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
+        },
+        {
+        "id": 3,
+        "title": "Legend of Zelda, Breath of the Wild",
+        "year": 2017,
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg"
+        },
+        {
+            "id": 4,
+            "title": "Fallout 4",
+            "year": 2015,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/70/Fallout_4_cover_art.jpg"
+        },
+        {
+            "id": 5,
+            "title": "Persona 3 Reload",
+            "year": 2024,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/65/Persona_3_Reload_box_art.jpg"
+        },
+        {
+            "id": 6,
+            "title": "Baldur's Gate 3",
+            "year": 2023,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/12/Baldur%27s_Gate_3_cover_art.jpg"
+        },
+        {
+            "id": 7,
+            "title": "Guilty Gear Strive",
+            "year": 2021,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7d/Guilty_Gear_Strive.jpg"
+        },
+        {
+            "id": 8,
+            "title": "Terraria",
+            "year": 2011,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/1a/Terraria_Steam_artwork.jpg"
+        },
+        {
+            "id": 9,
+            "title": "Grand Theft Auto V",
+            "year": 2013,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png"
+        },
+        {
+            "id": 10,
+            "title": "Team Fortress 2",
+            "year": 2007,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5f/Tf2_standalonebox.jpg"
+        },
+        {
+            "id": 11,
+            "title": "Elden Ring",
+            "year": 2022,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg"
+        },
+        {
+            "id": 12,
+            "title": "Palworld",
+            "year": 2024,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/Palworld_Steam_artwork.jpg"
+        },
+        {
+            "id": 13,
+            "title": "Dead by Daylight",
+            "year": 2016,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b7/Dead_by_Daylight_Steam_header.jpg"
+        },
+        {
+            "id": 14,
+            "title": "The Sims 4",
+            "year": 2014,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7f/Sims4_Rebrand.png"
+        },
+        {
+            "id": 15,
+            "title": "Don't Starve",
+            "year": 2013,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d2/Don%27t_Starve_cover.jpg"
+        },
+        {
+            "id": 16,
+            "title": "Red Dead Redemption 2",
+            "year": 2019,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"
+        },
+        {
+            "id": 17,
+            "title": "Lethal Company",
+            "year": 2023,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/Lethal_Company_Steam_cover.jpg"
+        },
+        {
+            "id": 18,
+            "title": "Rocket League",
+            "year": 2015,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rocket_League_coverart.jpg/330px-Rocket_League_coverart.jpg"
+        },
+        {
+            "id": 19,
+            "title": "Project Zomboid",
+            "year": 2013,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/0c/Boxshot_of_video_game_Project_zomboid.jpg"
+        },
+        {
+            "id": 20,
+            "title": "Cyberpunk 2077",
+            "year": 2020,
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
+        }
+    ]
+}

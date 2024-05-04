@@ -2,16 +2,82 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 
 function App(){
-    const homepage  = () => {
+    const Homepage  = () => {
+        //get code from midterm
+        let topGame = {
+            title: '',
+            rating: 0,
+            review: ''
+        };
+        let secondGame = {
+            title: '',
+            rating: 0,
+            review: ''
+        };
+        var imageTop;
+        var imageSecond;
+        const [reviews, setReviews] = useState([]);
+        useEffect(() => {
+            fetch("http://localhost:8081/reviews")
+            .then((response) => response.json())
+            .then((data) => {
+                setReviews(data);
+            });
+        }, []);
+            console.log(reviews);
+            for(let i = 0; i < reviews.length; i++){
+                if(reviews[i].rating > topGame.rating){
+                    secondGame.rating = topGame.rating;
+                    secondGame.title = topGame.title;
+                    secondGame.review = topGame.review;
+                    topGame.rating = reviews[i].rating;
+                    topGame.title = reviews[i].game_title;
+                    topGame.review = reviews[i].review;
+                }else if(reviews[i].rating > secondGame.rating){
+                    secondGame.rating = reviews[i].rating;
+                    secondGame.title = reviews[i].game_title;
+                    secondGame.review = reviews[i].review;
+                }
+            }
+            console.log(topGame);
+            console.log(secondGame);
+
+            fetch("./games.json")
+            .then(response => response.json())
+            .then(games => getImages(games));
+        function getImages(games){
+            for (let i=0; i<games.gamesList.length; i++){
+                let title = games.gamesList[i].title;
+                let image = games.gamesList[i].imageUrl;
+        
+                if(title = topGame.title){
+                    imageTop = image;
+                }
+                if(title = secondGame.title){
+                    imageSecond = image;
+                }
+            }
+        }
+        return (<div>
+            <div>
+                <p>{topGame.title}: {topGame.rating}</p>
+                <img src={imageTop}></img>
+                <p>{topGame.review}</p>
+            </div>
+            <div>
+                <p>{secondGame.title}: {secondGame.rating}</p>
+                <img src={imageSecond}></img>
+                <p>{secondGame.review}</p>
+            </div>
+        </div>);
+    }
+    const ViewGames = () => {
         //get code from midterm
     }
-    const viewGames = () => {
-        //get code from midterm
-    }
-    const gameReviews = () => {
+    const GameReviews = () => {
         //this page has buttons to viewgames, addreview, editreview and has the button to delete
         // Define hooks
-        const [products, setProducts] = useState([]);
+        /*const [products, setProducts] = useState([]);
         const navigate = useNavigate();
         // useEffect to load products when load page
         useEffect(() => {
@@ -24,13 +90,11 @@ function App(){
         }, []);
             
         return (<div>
-            {/* Buttons to show CRUD */}
             <button onClick={() => navigate('/getcatalog')}>GET Catalog</button>
             <button onClick={() => navigate('/getcatalogid')}>GET Item by Id</button>
             <button onClick={() => navigate('/postcatalog')}>POST a new Item</button>
             <button onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
             <button onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
-            {/* Show all products using map */}
             {products.map((el) => (
             <div key={el.id}>
             <img src={el.image} alt="product" width={30} />
@@ -41,11 +105,11 @@ function App(){
             </div>
             ))}
 
-        </div>);
+        </div>);*/
     }
-    const addReview = () => {
+    const AddReview = () => {
         // Define HOOKS
-        const navigate = useNavigate();
+        /*const navigate = useNavigate();
         const [formData, setFormData] = useState({
             id: '',
             title: '',
@@ -96,13 +160,11 @@ function App(){
         }
         //needs to return page to gamereviews after adding
         return(<div>
-            {/* Buttons to show CRUD */}
             <button onClick={() => navigate('/getcatalog')}>GET Catalog</button>
             <button onClick={() => navigate('/getcatalogid')}>GET Item by Id</button>
             <button onClick={() => navigate('/postcatalog')}>POST a new Item</button>
             <button onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
             <button onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
-            {/* Form to input data */}
             <form onSubmit={handleSubmit}>
             <h1>Post a New Product</h1>
             <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="ID" required /> <br />
@@ -114,11 +176,11 @@ function App(){
             <input type="text" name="rating" value={formData.rating.rate} onChange={handleChange} placeholder="Rating" required /> <br />
             <button type="submit">Submit</button>
             </form>
-        </div>);
+        </div>);*/
     }
-    const editReview = () => {
+    const EditReview = () => {
         // Define HOOKS
-        const navigate = useNavigate();
+        /*const navigate = useNavigate();
         const [formData, setFormData] = useState({
             id: '',
             title: '',
@@ -180,13 +242,11 @@ function App(){
         }
         //needs to return view to game reviews after editing
         return(<div>
-            {/* Buttons to show CRUD */}
             <button onClick={() => navigate('/getcatalog')}>GET Catalog</button>
             <button onClick={() => navigate('/getcatalogid')}>GET Item by Id</button>
             <button onClick={() => navigate('/postcatalog')}>POST a new Item</button>
             <button onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
             <button onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
-            {/* Form to input data */}
             <form onSubmit={handleSubmit}>
             <h1>Update a Product</h1>
             <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="ID" required /> <br />
@@ -198,21 +258,21 @@ function App(){
             <input type="text" name="rating" value={formData.rating.rate} onChange={handleChange} placeholder="Rating" required /> <br />
             <button type="submit">Submit</button>
             </form>
-        </div>);
+        </div>);*/
     }
-    const aboutPage = () => {
-        //get code from midterm
+    const AboutPage = () => {
+
     }
     return (
         <Router>
             <Routes>
-                <Route path="/homepage" element={<homepage />} />
-                <Route path="/viewgames" element={<viewgames />} />
-                <Route path="/gamereviews" element={<gameReviews />} />
-                <Route path="/addreview" element={<addReview />} />
-                <Route path="/editreview" element={<editReview />} />
-                <Route path="/aboutpage" element={<aboutPage />} />
-                <Route path="/" element={<Getcatalog />} /> {/* Default view */}
+                <Route path="/homepage" element={<Homepage />} />
+                <Route path="/viewgames" element={<ViewGames />} />
+                <Route path="/gamereviews" element={<GameReviews />} />
+                <Route path="/addreview" element={<AddReview />} />
+                <Route path="/editreview" element={<EditReview />} />
+                <Route path="/aboutpage" element={<AboutPage />} />
+                <Route path="/" element={<Homepage />} /> {/* Default view */}
             </Routes>
         </Router>
     );
