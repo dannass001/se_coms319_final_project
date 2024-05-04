@@ -1,0 +1,102 @@
+[
+    {
+       "id": 1,
+       "title": "Helldivers",
+       "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/e7/Helldivers2cover.png"
+    },
+    {
+       "id": 2,
+       "title": "Minecraft",
+       "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
+    },
+    {
+       "id": 3,
+       "title": "Legend of Zelda, Breath of the Wild",
+       "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Fallout 4",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/70/Fallout_4_cover_art.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Persona 3 Reload",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/65/Persona_3_Reload_box_art.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Baldur's Gate 3",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/12/Baldur%27s_Gate_3_cover_art.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Guilty Gear Strive",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7d/Guilty_Gear_Strive.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Terraria",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/1a/Terraria_Steam_artwork.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Grand Theft Auto V",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png"
+    },
+    {
+        "id": 10,
+        "title": "Team Fortress 2",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/5f/Tf2_standalonebox.jpg"
+    },
+    {
+        "id": 11,
+        "title": "Elden Ring",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg"
+    },
+    {
+        "id": 12,
+        "title": "Palworld",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/Palworld_Steam_artwork.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Dead by Daylight",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b7/Dead_by_Daylight_Steam_header.jpg"
+    },
+    {
+        "id": 14,
+        "title": "The Sims 4",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7f/Sims4_Rebrand.png"
+    },
+    {
+        "id": 15,
+        "title": "Don't Starve Together",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/d2/Don%27t_Starve_cover.jpg"
+    },
+    {
+        "id": 16,
+        "title": "Red Dead Redemption 2",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"
+    },
+    {
+        "id": 17,
+        "title": "Lethal Company",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/f/fb/Lethal_Company_Steam_cover.jpg"
+    },
+    {
+        "id": 18,
+        "title": "Rocket League",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rocket_League_coverart.jpg/330px-Rocket_League_coverart.jpg"
+    },
+    {
+        "id": 19,
+        "title": "Project Zomboid",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/0c/Boxshot_of_video_game_Project_zomboid.jpg"
+    },
+    {
+        "id": 20,
+        "title": "Cyberpunk 2077",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
+    }
+]
