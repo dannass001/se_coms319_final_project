@@ -58,11 +58,7 @@ app.post("/video_games", async (req, res) => {
         const newDocument = {
             "id": Number(values[0]), // also "id": req.body.id,
             "title": values[1], // also "name": req.body.name,
-            "price": Number(values[2]), // also "price": req.body.price,
-            "description": values[3], // also "description": req.body.description,
-            "category": values[4], // also "imageUrl": req.body.imageUrl
-            "image": values[5],
-            "rating": {"rate": Number(values[6]), "count": 1}
+            "image": values[2],
         };
         console.log(newDocument);
         const results = await db
@@ -105,11 +101,7 @@ app.put("/video_games/:id", async (req, res) => {
     $set:{
         "id": Number(req.body.id), 
         "title": req.body.title, 
-        "price": Number(req.body.price), 
-        "description": req.body.description, 
-        "category": req.body.category, 
         "image": req.body.image,
-        "rating": {"rate": Number(req.body.rating.rate), "count": 1}
     }
     };
     // Add options if needed, for example { upsert: true } to create a document if it doesn't exist
