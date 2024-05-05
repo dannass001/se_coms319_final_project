@@ -192,7 +192,7 @@ function App(){
                     <br/>
                     <div className="card mb-4 box-shadow p-3 bg-container">
                         <button onClick={() => ChangeGame(el.title)}>
-                            <img className="card-img-top" style={{height:400}} src={el.image} alt="Card image cap"/>
+                            <img className="card-img-top" style={{height:400}} src={el.imageUrl} alt="Card image cap"/>
                         </button>
                         <div className="card-body">
                             <div className="row text-muted"><strong>{el.title}</strong></div>
@@ -315,13 +315,13 @@ function App(){
 
         const listReviews = reviews.map((el) => (
             // GAMES
-            <div className="col-md-3 text-white rounded" key={el.id}>
+            <div className="col-md-3 m-3 text-white rounded" key={el.id}>
                     <br/>
                     <div className="card mb-4 box-shadow p-3 bg-container">
                         <div className="card-body">
                             <div className="row text-muted"><strong>{el.game_title}</strong></div>
                             <div className="row text-muted"><strong>{el.rating} / 10</strong></div>
-                            <div className="row text-success lead fw-normal">{el.review}</div>
+                            <div className="row text-primary lead fw-normal">{el.review}</div>
                             <button onClick={() => addLike(el.id, el.likes)}>{el.likes}</button>
                             <button onClick={() => deleteReview(el.id)}>Delete</button>
                         </div>
@@ -350,14 +350,10 @@ function App(){
                 </header>
 
                 {/* Show all products using map */}
-                <div className="row">
-                    <p>{games.title}, {games.year}</p>
-                    <img src={games.imageUrl}></img>
+                <div className="d-flex flex-row-reverse mt-2">
+                    <button className="bg-primary text-white p-3 m-2 rounded" onClick={() => navigate('/AddReview')}>+</button>
                 </div>
                 <div>
-                    <button onClick={() => navigate('/AddReview')}>Add Review</button>
-                </div>
-                <div className="bg-white">
                     <div className="album py-5">
                         <div className="row">{listReviews}</div>
                     </div>
@@ -420,15 +416,19 @@ function App(){
                 alert('Error adding review:'+error.message); // Display alert if there's an error
             });
         }
-        return(<div>
-            <button onClick={() => navigate('/GameReviews')}>Back</button>
-            <form onSubmit={handleSubmit}>
-            <h1>Post a New Review</h1>
-            <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="id" required /> <br />
-            <input type="text" name="rating" value={formData.rating} onChange={handleChange} placeholder="Rating ?/10" required /> <br />
-            <input type="text" name="review" value={formData.review} onChange={handleChange} placeholder="Review" required /> <br />
-            <button type="submit">Submit</button>
-            </form>
+        return(<div style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
+            <header>
+                <button onClick={() => navigate('/GameReviews')}>Back</button>
+            </header>
+            <div>
+                <form onSubmit={handleSubmit}>
+                <h1 className="text-white">Post a New Review</h1>
+                <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="id" required /> <br />
+                <input type="text" name="rating" value={formData.rating} onChange={handleChange} placeholder="Rating ?/10" required /> <br />
+                <input type="text" name="review" value={formData.review} onChange={handleChange} placeholder="Review" required /> <br />
+                <button type="submit">Submit</button>
+                </form>
+            </div>
         </div>);
     }
 
