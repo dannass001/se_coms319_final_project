@@ -316,13 +316,14 @@ function App(){
             // GAMES
             <div className="col-md-3 m-3 text-white rounded" key={el.id}>
                     <br/>
-                    <div className="card mb-4 box-shadow p-3 bg-container">
+                    <div className="card mb-4 box-shadow p-3 bg-container bg-primary">
                         <div className="card-body">
-                            <div className="row text-muted"><strong>{el.game_title}</strong></div>
-                            <div className="row text-muted"><strong>{el.rating} / 10</strong></div>
-                            <div className="row text-primary lead fw-normal">{el.review}</div>
-                            <button onClick={() => addLike(el.id, el.likes)}>{el.likes}</button>
-                            <button onClick={() => deleteReview(el.id)}>Delete</button>
+                            <div className="row text-dark"><strong>{el.game_title}: {el.rating}/10</strong></div>
+                            <div className="row text-white"><em>{el.review}</em></div>
+                            <div className="d-flex flex-row-reverse">
+                                <button className="m-1 rounded bg-white" onClick={() => deleteReview(el.id)}>Delete</button>
+                                <button className="m-1 rounded bg-white" onClick={() => addLike(el.id, el.likes)}>{el.likes}</button>
+                            </div>
                         </div>
                     </div>
                 </div>
