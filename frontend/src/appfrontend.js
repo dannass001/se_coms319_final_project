@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import "bootstrap/dist/js/bootstrap.bundle.js.map";
+import "./styles/vgReviews.css";
+import "./styles/bootstrap.min.css";
+
 
 function App(){
     const [currentGame, setCurrentGame] = useState("Minecraft");
@@ -73,33 +78,97 @@ function App(){
                 </div>
         ));
 
-        return (<div>
-                <header>
-                    <div className="navbar navbar-dark bg-primary box-shadow">
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
-                        {/* <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
-                    </div>
+        return (
+            <div>
+                <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/"></link>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
+                <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
+                    <nav className="bg-dark navbar navbar-expand-md navbar-dark fixed-top justify-content-center">
+                        <div className="container-fluid">
+                        <a href="/" className="navbar-brand align-items-center">Video Game Reviews</a>
+                            <ul className="nav nav-pills me-auto mb-2 mb-md-0">
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page"  onClick={() => navigate('/Homepage')}>Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/ViewGames')}>Games</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/Aboutpage')}>About</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </header>
 
-                <div className="bg-white">
-                    <div className="album py-5">
-                        <div className="row">
-                        <p>{topGame.title}: {topGame.rating}</p>
-                        <img src={topGame.image}></img>
-                        <p>{topGame.review}</p>
+                <main className="bg-dark">
+                    <div id="myCarousel" className="carousel slide mb-6 bg-carousel" data-bs-ride="carousel" style={{background: "rgba(0, 0, 34)"}}>
+                        <div className="carousel-indicators">
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         </div>
-                        <div className="row">
-                        <p>{secondGame.title}: {secondGame.rating}</p>
-                <img src={secondGame.image}></img>
-                <p>{secondGame.review}</p>
+                        <div className="carousel-inner">
+                        <div className="carousel-item active">
+                            <img id="img1" className="bd-placeholder-img" src={topGame.image}/>
+                            <div className="container">
+                                <div className="carousel-caption text-end" style={{color: "aliceblue"}}>
+                                    <h1>Top Review #1</h1>
+                                    <h2>{topGame.title}, Rating: {topGame.rating}</h2>
+                                    <h3>{topGame.review}</h3>
+                                </div>
+                            </div>
                         </div>
+                        <div className="carousel-item">
+                            <img id="img2" className="bd-placeholder-img" src={secondGame.image}/>
+                            <div className="container">
+                            <div className="carousel-caption text-end" style={{color: "aliceblue"}}>
+                                <h1>Top Review #2</h1>
+                                <h2>{secondGame.title}, Rating: {secondGame.rating}</h2>
+                                <h3>{secondGame.review}</h3>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                        <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                        </button>
                     </div>
+
+                {/* <!-- Featurettes ============================================================= -->
+                <!-- Wrap the rest of the page in another container to center all the content. --> */}
+
+                <div className="container marketing bg-light p-2">
+
+                    {/* <!-- START THE FEATURETTES --> */}
+
+                    <div className="row featurette">
+                    <div className="col-md-7">
+                        <h2 className="featurette-heading fw-normal lh-1">Welcome to our Video Game Reviews</h2>
+                        <p className="lead" style={{padding: "2%"}}>Please enjoy our reviews on our <a style={{color:"blue"}} onClick={() => navigate('/ViewGames')}>Games Page</a>.</p>
+                    </div>
+                    <div className="col-md-5">
+                        <img className="img-fluid" width="100%" height="100%" src="myotherimages/gaming.png"></img>
+                    </div>
+                    </div>
+
+                    {/* <!-- /END THE FEATURETTES --> */}
                 </div>
-        </div>);
+                <br/>
+                <br/>
+                <br/>
+                </main>
+                <footer className="container bg-footer">
+              <p className="float-end"><a href="#">Back to top</a></p>
+              <p>&copy; Daniel Nass &middot; David Scranton</p>
+            </footer>
+                
+            </div>
+        );
     }
 
     const ViewGames = () => {
@@ -136,15 +205,23 @@ function App(){
         return (
             <div>
                 {/* Buttons to show CRUD */}
-                <header>
-                    <div className="navbar navbar-dark bg-primary box-shadow">
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
-                        {/* <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
-                    </div>
+                <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
+                    <nav className="bg-dark navbar navbar-expand-md navbar-dark fixed-top justify-content-center">
+                        <div className="container-fluid">
+                        <a href="/" className="navbar-brand align-items-center">Video Game Reviews</a>
+                            <ul className="nav nav-pills me-auto mb-2 mb-md-0">
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/Homepage')}>Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" onClick={() => navigate('/ViewGames')}>Games</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/Aboutpage')}>About</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </header>
                 {/* Show all products using map */}
                 <div className="bg-white">
@@ -248,16 +325,25 @@ function App(){
         ));
         return(<div>
             {/* Buttons to show CRUD */}
-            <header>
-                    <div className="navbar navbar-dark bg-primary box-shadow">
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
-                        {/* <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
-                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
-                    </div>
+            <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
+                    <nav className="bg-dark navbar navbar-expand-md navbar-dark fixed-top justify-content-center">
+                        <div className="container-fluid">
+                        <a href="/" className="navbar-brand align-items-center">Video Game Reviews</a>
+                            <ul className="nav nav-pills me-auto mb-2 mb-md-0">
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/Homepage')}>Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" onClick={() => navigate('/ViewGames')}>Games</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/Aboutpage')}>About</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </nav>
                 </header>
+
                 {/* Show all products using map */}
                 <div className="row">
                     <p>{games.title}, {games.year}</p>
@@ -335,11 +421,28 @@ function App(){
 
     const Aboutpage = () => {
         const navigate = useNavigate();
-        return(<div>
-            <button onClick={() => navigate('/Homepage')}>Home</button>
-            <button onClick={() => navigate('/ViewGames')}>Games</button>
-            <button onClick={() => navigate('/Aboutpage')}>About</button>
-        </div>);
+        return(
+            <div>
+                <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
+                    <nav className="bg-dark navbar navbar-expand-md navbar-dark fixed-top justify-content-center">
+                        <div className="container-fluid">
+                        <a href="/" className="navbar-brand align-items-center">Video Game Reviews</a>
+                            <ul className="nav nav-pills me-auto mb-2 mb-md-0">
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/Homepage')}>Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/ViewGames')}>Reviews</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" onClick={() => navigate('/Aboutpage')}>About</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+        );
     }
     return (
         <Router>
