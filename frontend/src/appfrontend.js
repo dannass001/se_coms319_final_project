@@ -188,15 +188,14 @@ function App(){
         }
         const listGames = games.map((el) => (
             // GAMES
-            <div className="col-md-3 text-white" key={el.id}>
+            <div className="col-md-3 text-white">
                     <br/>
-                    <div className="card mb-4 box-shadow p-3 bg-container">
+                    <div className="mb-4 box-shadow p-3 bg-container" key={el.id}>
                         <button onClick={() => ChangeGame(el.title)}>
                             <img className="card-img-top" style={{height:400}} src={el.imageUrl} alt="Card image cap"/>
                         </button>
                         <div className="card-body">
-                            <div className="row text-muted"><strong>{el.title}</strong></div>
-                            <div className="row text-success lead fw-normal">Year: {el.year}</div>
+                            <div className="row text-white lead fw-normal"><strong>{el.title} <br/> Year: {el.year}</strong></div>
                         </div>
                     </div>
                 </div>
@@ -224,7 +223,7 @@ function App(){
                     </nav>
                 </header>
                 {/* Show all products using map */}
-                <div className="bg-white">
+                <div>
                     <div className="album py-5" style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
                         <div className="row">{listGames}</div>
                     </div>
