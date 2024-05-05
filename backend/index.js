@@ -33,20 +33,21 @@ app.get("/reviews", async (req, res) => {
     res.send(results);
 });
 
-app.get("/reviews/:id", async (req, res) => {
-    const productid = Number(req.params.id);
-    console.log("Game to find :", productid);
+app.get("/reviews/:game", async (req, res) => {
+    const game_title = req.params.game;
+    console.log("Game to find :", game_title);
     await client.connect();
 
     console.log("Node connected successfully to GET-id MongoDB");
 
-    const query = {"id": productid };
+    const query = {"game_title": game_title };
     const results = await db.collection("reviews")
-    .findOne(query);
-    
-    console.log("Results :", results);
-    if (!results) res.send("Not Found").status(404);
-    else res.send(results).status(200);
+    .find(query)
+    .limit(100)
+    .toArray();
+    console.log(results);
+    res.status(200);
+    res.send(results);
 });
 
 app.post("/reviews", async (req, res) => {

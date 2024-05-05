@@ -158,36 +158,17 @@ function App(){
     const GameReviews = () => {
         const navigate = useNavigate();
         const [reviews, setReviews] = useState([]);
-        const [games, setGames] = useState([]);
-        const [thisGame, setThisGame] = useState({
-            "id":'',
-            "title": '',
-            "year": '',
-            "image": ''
-        }); 
+        const [games, setGames] = useState([]); 
         useEffect(() => {
-            fetch("http://localhost:8081/reviews")
+            fetch("http://localhost:8081/reviews/" + currentGame)
             .then((response) => response.json())
             .then((data) => {
                 setReviews(data);
             });
-            fetch("http://localhost:8080/games")
+            fetch("http://localhost:8080/games/" + currentGame)
             .then((response) => response.json())
             .then((data) => {
                 setGames(data);
-                console.log(games.length)
-                for(let i = 0; i < games.length; i++){
-                    console.log(games[i].title + " " + currentGame);
-                    if(games[i].title == currentGame){
-                        setThisGame(prevState => ({
-                            ...prevState,
-                            ["id"]: games[i].id,
-                            ["title"]: games[i].title,
-                            ["year"]: games[i].year,
-                            ["image"]: games[i].imageUrl
-                        }));
-                    }
-                }
             });
         }, []);
 
@@ -279,8 +260,8 @@ function App(){
                 </header>
                 {/* Show all products using map */}
                 <div class="row">
-                    <p>{thisGame.title}, {thisGame.year}</p>
-                    <img src={thisGame.image}></img>
+                    <p>{games.title}, {games.year}</p>
+                    <img src={games.imageUrl}></img>
                 </div>
                 <div>
                     <button onClick={() => navigate('/AddReview')}>Add Review</button>
