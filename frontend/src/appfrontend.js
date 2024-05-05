@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import "bootstrap/dist/css/bootstrap.css";
-import "./styles/vgReviews.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 function App(){
     const [currentGame, setCurrentGame] = useState("Minecraft");
@@ -85,6 +84,7 @@ function App(){
                         <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
                     </div>
                 </header>
+
                 <div class="bg-white">
                     <div class="album py-5">
                         <div class="row">
