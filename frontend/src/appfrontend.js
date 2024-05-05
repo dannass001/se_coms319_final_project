@@ -2,13 +2,6 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/vgReviews.css";
-// import "./styles/bootstrap.bundle.min.js";
-// import "./styles/bootstrap.bundle.min.js.map";
-import "./styles/bootstrap.min.css";
-import "./styles/bootstrap.min.css.map";
-import "./styles/bootstrap.rtl.min.css";
-import "./styles/bootstrap.rtl.min.css.map";
-import "./styles/color-modes.js";
 
 function App(){
     const Homepage  = () => {
