@@ -29,6 +29,7 @@ function App(){
             review: ''
         };
         const [reviews, setReviews] = useState([]);
+        const [games, setGames] = useState([]);
         useEffect(() => {
             fetch("http://localhost:8081/reviews")
             .then((response) => response.json())
@@ -83,9 +84,9 @@ function App(){
         return (<div>
                 <header>
                     <div class="navbar navbar-dark bg-primary box-shadow">
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Home')}>Home</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Games')}>Games</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/About')}>About</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
                         {/* <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
                         <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
                         <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
@@ -144,9 +145,9 @@ function App(){
                 {/* Buttons to show CRUD */}
                 <header>
                     <div class="navbar navbar-dark bg-primary box-shadow">
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Home')}>Home</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Games')}>Games</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/About')}>About</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
                         {/* <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
                         <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
                         <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
