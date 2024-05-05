@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./styles/vgReviews.css";
 
 function App(){
-    const [currentGame, setCurrentGame] = useState();
+    const [currentGame, setCurrentGame] = useState("Minecraft");
     const Homepage  = () => {
         const navigate = useNavigate();
         //get code from midterm
@@ -159,6 +159,12 @@ function App(){
         const navigate = useNavigate();
         const [reviews, setReviews] = useState([]);
         const [games, setGames] = useState([]);
+        const [thisGame, setThisGame] = useState({
+            "id":'',
+            "title": '',
+            "year": '',
+            "image": ''
+        }); 
         useEffect(() => {
             fetch("http://localhost:8081/reviews")
             .then((response) => response.json())
@@ -170,12 +176,57 @@ function App(){
             .then((data) => {
                 setGames(data);
             });
+            for(let i = 0; i < games.length; i++){
+                if(games[i].title == currentGame){
+                    setThisGame(prevState => ({
+                        ...prevState,
+                        ["id"]: games[i].id,
+                        ["title"]: games[i].title,
+                        ["year"]: games[i].year,
+                        ["image"]: games[i].imageUrl
+                    }));
+                }
+            }
         }, []);
+
+        const listReviews = reviews.map((el) => (
+            // GAMES
+            <div class="col-md-3 text-white rounded" key={el.id}>
+                    <br/>
+                    <div class="card mb-4 box-shadow p-3 bg-light">
+                        <div class="card-body">
+                            <div class="row text-muted"><strong>{el.game_title}</strong></div>
+                            <div class="row text-muted"><strong>{el.rating} / 10</strong></div>
+                            <div class="row text-success lead fw-normal">{el.review}</div>
+                            <button>{el.likes}</button>
+                            <button>Delete</button>
+                        </div>
+                    </div>
+                </div>
+        ));
+        console.log(thisGame);
         return(<div>
-            <button onClick={() => navigate('/Homepage')}>Home</button>
-            <button onClick={() => navigate('/ViewGames')}>Games</button>
-            <button onClick={() => navigate('/Aboutpage')}>About</button>
-            <p>{currentGame}</p>
+            {/* Buttons to show CRUD */}
+            <header>
+                    <div class="navbar navbar-dark bg-primary box-shadow">
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
+                        {/* <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
+                    </div>
+                </header>
+                {/* Show all products using map */}
+                <div class="row">
+                    <p>{thisGame.title}, {thisGame.year}</p>
+                    <img src={thisGame.image}></img>
+                </div>
+                <div class="bg-white">
+                    <div class="album py-5">
+                        <div class="row">{listReviews}</div>
+                    </div>
+                </div>
         </div>)
     }
 
