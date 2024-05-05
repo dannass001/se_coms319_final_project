@@ -17,74 +17,20 @@ function App(){
             image: '',
             review: ''
         };
-<<<<<<< Updated upstream
-
-        var imageTop;
-        var imageSecond;
-
-=======
->>>>>>> Stashed changes
         const [reviews, setReviews] = useState([]);
+        const [games, setGames] = useState([]);
         useEffect(() => {
             fetch("http://localhost:8081/reviews")
             .then((response) => response.json())
             .then((data) => {
                 setReviews(data);
             });
+            fetch("http://localhost:8080/games")
+            .then((response) => response.json())
+            .then((data) => {
+                setGames(data);
+            });
         }, []);
-<<<<<<< Updated upstream
-
-            console.log(reviews);
-
-            for(let i = 0; i < reviews.length; i++){
-                if(reviews[i].rating > topGame.rating) {
-
-                    secondGame.rating = topGame.rating;
-                    secondGame.title = topGame.title;
-                    secondGame.review = topGame.review;
-
-                    topGame.rating = reviews[i].rating;
-                    topGame.title = reviews[i].game_title;
-                    topGame.review = reviews[i].review;
-
-                } else if(reviews[i].rating > secondGame.rating) {
-
-                    secondGame.rating = reviews[i].rating;
-                    secondGame.title = reviews[i].game_title;
-                    secondGame.review = reviews[i].review;
-
-                }
-            }
-
-            console.log(topGame);
-            console.log(secondGame);
-
-            fetch("./games.json")
-            .then(response => response.json())
-            .then(games => getImages(games));
-
-        function getImages(games) {
-
-            for (let i=0; i<games.gamesList.length; i++) {
-
-                let title = games.gamesList[i].title;
-                let image = games.gamesList[i].imageUrl;
-        
-                if (title = topGame.title) {
-                    imageTop = image;
-                }
-
-                if (title = secondGame.title) {
-                    imageSecond = image;
-                }
-            }
-        }
-        return (
-            <div>
-                
-            </div>
-        );
-=======
         for(let i = 0; i < reviews.length; i++){
             if(reviews[i].rating > topGame.rating){
                 secondGame.rating = topGame.rating;
@@ -99,7 +45,7 @@ function App(){
                 secondGame.review = reviews[i].review;
             }
         }
-        /*for (let i = 0; i < 20; i++){
+        for (let i = 0; i < games.length; i++){
             var title = games[i].title;
             var image = games[i].imageUrl;
     
@@ -108,7 +54,7 @@ function App(){
             }else if(title == secondGame.title){
                 secondGame.image = image;
             }
-        }*/
+        }
         return (<div>
             <div>
                 <p>{topGame.title}: {topGame.rating}</p>
@@ -121,7 +67,6 @@ function App(){
                 <p>{secondGame.review}</p>
             </div>
         </div>);
->>>>>>> Stashed changes
     }
 
     const ViewGames = () => {
