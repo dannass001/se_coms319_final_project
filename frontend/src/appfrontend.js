@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import { Container, Row, Col } from "react-bootstrap";
 
 function App(){
     const [currentGame, setCurrentGame] = useState("Minecraft");
@@ -279,7 +278,7 @@ function App(){
         const navigate = useNavigate();
         const [formData, setFormData] = useState({
             id: '',
-            game_title: '',
+            game_title: currentGame,
             review: '',
             likes: 0,
             rating: '',
@@ -326,7 +325,6 @@ function App(){
             <form onSubmit={handleSubmit}>
             <h1>Post a New Review</h1>
             <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="ID" required /> <br />
-            <input type="text" name="game_title" value={formData.game_title} onChange={handleChange} placeholder="Game" required /> <br />
             <input type="text" name="rating" value={formData.rating} onChange={handleChange} placeholder="Rating ?/10" required /> <br />
             <input type="text" name="review" value={formData.review} onChange={handleChange} placeholder="Review" required /> <br />
             <button type="submit">Submit</button>
