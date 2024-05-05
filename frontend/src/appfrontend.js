@@ -504,7 +504,7 @@ function App(){
                             <p class="lead">Dr.Ali Jannesari, jannesar@iastate.edu</p>
                         </div>
                         <div class="col-md-5">
-                            <img src="myotherimages/dan.png"/>
+                            
                         </div>
                         </div>
 
