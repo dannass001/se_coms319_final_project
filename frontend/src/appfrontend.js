@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/vgReviews.css";
-import "./styles/bootstrap.bundle.min.js";
-import "./styles/bootstrap.bundle.min.js.map";
+// import "./styles/bootstrap.bundle.min.js";
+// import "./styles/bootstrap.bundle.min.js.map";
 import "./styles/bootstrap.min.css";
 import "./styles/bootstrap.min.css.map";
 import "./styles/bootstrap.rtl.min.css";
@@ -29,7 +29,6 @@ function App(){
             review: ''
         };
         const [reviews, setReviews] = useState([]);
-        const [games, setGames] = useState([]);
         useEffect(() => {
             fetch("http://localhost:8081/reviews")
             .then((response) => response.json())
@@ -72,26 +71,26 @@ function App(){
             console.log(topGame);
             console.log(secondGame);
 
-            fetch("./games.json")
-            .then(response => response.json())
-            .then(games => getImages(games));
+            // fetch("./games.json")
+            // .then(response => response.json())
+            // .then(games => getImages(games));
 
-        function getImages(games) {
+        // function getImages(games) {
 
-            for (let i=0; i<games.gamesList.length; i++) {
+        //     for (let i=0; i<games.gamesList.length; i++) {
 
-                let title = games.gamesList[i].title;
-                let image = games.gamesList[i].imageUrl;
+        //         let title = games.gamesList[i].title;
+        //         let image = games.gamesList[i].imageUrl;
         
-                if (title = topGame.title) {
-                    imageTop = image;
-                }
+        //         if (title = topGame.title) {
+        //             imageTop = image;
+        //         }
 
-                if (title = secondGame.title) {
-                    imageSecond = image;
-                }
-            }
-        }
+        //         if (title = secondGame.title) {
+        //             imageSecond = image;
+        //         }
+        //     }
+        // }
 
         const listGames = games.map((el) => (
             // GAMES
@@ -143,26 +142,26 @@ function App(){
             });
         }, []);
 
-        fetch("./games.json")
-            .then(response => response.json())
-            .then(games => getImages(games));
+        // fetch("./games.json")
+        //     .then(response => response.json())
+        //     .then(games => getImages(games));
 
-        function getImages(games) {
+        // function getImages(games) {
 
-            for (let i=0; i<games.gamesList.length; i++) {
+        //     for (let i=0; i<games.gamesList.length; i++) {
 
-                let title = games.gamesList[i].title;
-                let image = games.gamesList[i].imageUrl;
+        //         let title = games.gamesList[i].title;
+        //         let image = games.gamesList[i].imageUrl;
         
-                if (title = topGame.title) {
-                    imageTop = image;
-                }
+        //         if (title = topGame.title) {
+        //             imageTop = image;
+        //         }
 
-                if (title = secondGame.title) {
-                    imageSecond = image;
-                }
-            }
-        }
+        //         if (title = secondGame.title) {
+        //             imageSecond = image;
+        //         }
+        //     }
+        // }
         
         const listGames = games.map((el) => (
             // GAMES
