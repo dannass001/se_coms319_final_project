@@ -75,16 +75,7 @@ function App(){
         }
         return (
             <div>
-                <div>
-                    <p>{topGame.title}: {topGame.rating}</p>
-                    <img src={imageTop}></img>
-                    <p>{topGame.review}</p>
-                </div>
-                <div>
-                    <p>{secondGame.title}: {secondGame.rating}</p>
-                    <img src={imageSecond}></img>
-                    <p>{secondGame.review}</p>
-                </div>
+                
             </div>
         );
     }
