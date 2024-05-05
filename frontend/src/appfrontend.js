@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.css";
 
 function App(){
     const [currentGame, setCurrentGame] = useState("Minecraft");
@@ -60,13 +61,13 @@ function App(){
 
         const listGames = games.map((el) => (
             // GAMES
-            <div class="col-md-3 text-white rounded" key={el.id}>
+            <div className="col-md-3 text-white rounded" key={el.id}>
                     <br/>
-                    <div class="card mb-4 box-shadow p-3 bg-light">
-                        <img class="card-img-top" style={{height:400}} src={el.image} alt="Card image cap"/>
-                        <div class="card-body">
-                            <div class="row text-muted"><strong>{el.title}</strong></div>
-                            <div class="row text-success lead fw-normal">Year: {el.year}</div>
+                    <div className="card mb-4 box-shadow p-3 bg-light">
+                        <img className="card-img-top" style={{height:400}} src={el.image} alt="Card image cap"/>
+                        <div className="card-body">
+                            <div className="row text-muted"><strong>{el.title}</strong></div>
+                            <div className="row text-success lead fw-normal">Year: {el.year}</div>
                         </div>
                     </div>
                 </div>
@@ -74,24 +75,24 @@ function App(){
 
         return (<div>
                 <header>
-                    <div class="navbar navbar-dark bg-primary box-shadow">
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
-                        {/* <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
+                    <div className="navbar navbar-dark bg-primary box-shadow">
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
+                        {/* <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
                     </div>
                 </header>
 
-                <div class="bg-white">
-                    <div class="album py-5">
-                        <div class="row">
+                <div className="bg-white">
+                    <div className="album py-5">
+                        <div className="row">
                         <p>{topGame.title}: {topGame.rating}</p>
                         <img src={topGame.image}></img>
                         <p>{topGame.review}</p>
                         </div>
-                        <div class="row">
+                        <div className="row">
                         <p>{secondGame.title}: {secondGame.rating}</p>
                 <img src={secondGame.image}></img>
                 <p>{secondGame.review}</p>
@@ -118,15 +119,15 @@ function App(){
         }
         const listGames = games.map((el) => (
             // GAMES
-            <div class="col-md-3 text-white rounded" key={el.id}>
+            <div className="col-md-3 text-white rounded" key={el.id}>
                     <br/>
-                    <div class="card mb-4 box-shadow p-3 bg-light">
+                    <div className="card mb-4 box-shadow p-3 bg-light">
                         <button onClick={() => ChangeGame(el.title)}>
-                            <img class="card-img-top" style={{height:400}} src={el.image} alt="Card image cap"/>
+                            <img className="card-img-top" style={{height:400}} src={el.image} alt="Card image cap"/>
                         </button>
-                        <div class="card-body">
-                            <div class="row text-muted"><strong>{el.title}</strong></div>
-                            <div class="row text-success lead fw-normal">Year: {el.year}</div>
+                        <div className="card-body">
+                            <div className="row text-muted"><strong>{el.title}</strong></div>
+                            <div className="row text-success lead fw-normal">Year: {el.year}</div>
                         </div>
                     </div>
                 </div>
@@ -136,19 +137,19 @@ function App(){
             <div>
                 {/* Buttons to show CRUD */}
                 <header>
-                    <div class="navbar navbar-dark bg-primary box-shadow">
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
-                        {/* <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
+                    <div className="navbar navbar-dark bg-primary box-shadow">
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
+                        {/* <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
                     </div>
                 </header>
                 {/* Show all products using map */}
-                <div class="bg-white">
-                    <div class="album py-5">
-                        <div class="row">{listGames}</div>
+                <div className="bg-white">
+                    <div className="album py-5">
+                        <div className="row">{listGames}</div>
                     </div>
                 </div>
             </div>);
@@ -232,13 +233,13 @@ function App(){
 
         const listReviews = reviews.map((el) => (
             // GAMES
-            <div class="col-md-3 text-white rounded" key={el.id}>
+            <div className="col-md-3 text-white rounded" key={el.id}>
                     <br/>
-                    <div class="card mb-4 box-shadow p-3 bg-light">
-                        <div class="card-body">
-                            <div class="row text-muted"><strong>{el.game_title}</strong></div>
-                            <div class="row text-muted"><strong>{el.rating} / 10</strong></div>
-                            <div class="row text-success lead fw-normal">{el.review}</div>
+                    <div className="card mb-4 box-shadow p-3 bg-light">
+                        <div className="card-body">
+                            <div className="row text-muted"><strong>{el.game_title}</strong></div>
+                            <div className="row text-muted"><strong>{el.rating} / 10</strong></div>
+                            <div className="row text-success lead fw-normal">{el.review}</div>
                             <button onClick={() => addLike(el.id, el.likes)}>{el.likes}</button>
                             <button onClick={() => deleteReview(el.id)}>Delete</button>
                         </div>
@@ -248,26 +249,26 @@ function App(){
         return(<div>
             {/* Buttons to show CRUD */}
             <header>
-                    <div class="navbar navbar-dark bg-primary box-shadow">
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
-                        {/* <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
-                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
+                    <div className="navbar navbar-dark bg-primary box-shadow">
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Homepage')}>Home</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/ViewGames')}>Games</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Aboutpage')}>About</button>
+                        {/* <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
+                        <button className="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
                     </div>
                 </header>
                 {/* Show all products using map */}
-                <div class="row">
+                <div className="row">
                     <p>{games.title}, {games.year}</p>
                     <img src={games.imageUrl}></img>
                 </div>
                 <div>
                     <button onClick={() => navigate('/AddReview')}>Add Review</button>
                 </div>
-                <div class="bg-white">
-                    <div class="album py-5">
-                        <div class="row">{listReviews}</div>
+                <div className="bg-white">
+                    <div className="album py-5">
+                        <div className="row">{listReviews}</div>
                     </div>
                 </div>
         </div>)
