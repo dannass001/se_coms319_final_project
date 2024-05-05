@@ -7,18 +7,23 @@ function App(){
         let topGame = {
             title: '',
             rating: 0,
+            image: '',
             review: ''
         };
 
         let secondGame = {
             title: '',
             rating: 0,
+            image: '',
             review: ''
         };
+<<<<<<< Updated upstream
 
         var imageTop;
         var imageSecond;
 
+=======
+>>>>>>> Stashed changes
         const [reviews, setReviews] = useState([]);
         useEffect(() => {
             fetch("http://localhost:8081/reviews")
@@ -27,6 +32,7 @@ function App(){
                 setReviews(data);
             });
         }, []);
+<<<<<<< Updated upstream
 
             console.log(reviews);
 
@@ -78,6 +84,44 @@ function App(){
                 
             </div>
         );
+=======
+        for(let i = 0; i < reviews.length; i++){
+            if(reviews[i].rating > topGame.rating){
+                secondGame.rating = topGame.rating;
+                secondGame.title = topGame.title;
+                secondGame.review = topGame.review;
+                topGame.rating = reviews[i].rating;
+                topGame.title = reviews[i].game_title;
+                topGame.review = reviews[i].review;
+            }else if(reviews[i].rating > secondGame.rating){
+                secondGame.rating = reviews[i].rating;
+                secondGame.title = reviews[i].game_title;
+                secondGame.review = reviews[i].review;
+            }
+        }
+        /*for (let i = 0; i < 20; i++){
+            var title = games[i].title;
+            var image = games[i].imageUrl;
+    
+            if(title == topGame.title){
+                topGame.image = image;
+            }else if(title == secondGame.title){
+                secondGame.image = image;
+            }
+        }*/
+        return (<div>
+            <div>
+                <p>{topGame.title}: {topGame.rating}</p>
+                <img src={topGame.image}></img>
+                <p>{topGame.review}</p>
+            </div>
+            <div>
+                <p>{secondGame.title}: {secondGame.rating}</p>
+                <img src={secondGame.image}></img>
+                <p>{secondGame.review}</p>
+            </div>
+        </div>);
+>>>>>>> Stashed changes
     }
 
     const ViewGames = () => {
@@ -87,27 +131,27 @@ function App(){
     const GameReviews = () => {
         //this page has buttons to viewgames, addreview, editreview and has the button to delete
         // Define hooks
-        /*const [products, setProducts] = useState([]);
+        /*const [reviews, setReviews] = useState([]);
         const navigate = useNavigate();
         // useEffect to load products when load page
         useEffect(() => {
             fetch("http://localhost:8081/fakestore")
             .then((response) => response.json())
             .then((data) => {
-            console.log("Show Catalog of Products :", data);
-            setProducts(data);
+            console.log("Show Catalog of Reviews :", data);
+            setReviews(data);
             });
         }, []);
             
         return (<div>
-            <button onClick={() => navigate('/getcatalog')}>GET Catalog</button>
+            <button onClick={() => navigate('/Homepage')}>GET Catalog</button>
             <button onClick={() => navigate('/getcatalogid')}>GET Item by Id</button>
-            <button onClick={() => navigate('/postcatalog')}>POST a new Item</button>
-            <button onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
+            <button onClick={() => navigate('/AddReview')}>POST a new Item</button>
+            <button onClick={() => navigate('/AboutPage')}>PUT (modify) an Item</button>
             <button onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
             {products.map((el) => (
             <div key={el.id}>
-            <img src={el.image} alt="product" width={30} />
+            <img src={el.image} width={30} />
             <div>Title: {el.title}</div>
             <div>Category: {el.category}</div>
             <div>Price: {el.price}</div>
@@ -279,12 +323,12 @@ function App(){
     return (
         <Router>
             <Routes>
-                <Route path="/homepage" element={<Homepage />} />
-                <Route path="/viewgames" element={<ViewGames />} />
-                <Route path="/gamereviews" element={<GameReviews />} />
-                <Route path="/addreview" element={<AddReview />} />
-                <Route path="/editreview" element={<EditReview />} />
-                <Route path="/aboutpage" element={<AboutPage />} />
+                <Route path="/Homepage" element={<Homepage />} />
+                <Route path="/ViewGames" element={<ViewGames />} />
+                <Route path="/GameReviews" element={<GameReviews />} />
+                <Route path="/AddReview" element={<AddReview />} />
+                <Route path="/EditReview" element={<EditReview />} />
+                <Route path="/AboutPage" element={<AboutPage />} />
                 <Route path="/" element={<Homepage />} /> {/* Default view */}
             </Routes>
         </Router>
