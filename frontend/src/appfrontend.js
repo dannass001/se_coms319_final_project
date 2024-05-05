@@ -9,13 +9,16 @@ function App(){
             rating: 0,
             review: ''
         };
+
         let secondGame = {
             title: '',
             rating: 0,
             review: ''
         };
+
         var imageTop;
         var imageSecond;
+
         const [reviews, setReviews] = useState([]);
         useEffect(() => {
             fetch("http://localhost:8081/reviews")
@@ -24,56 +27,72 @@ function App(){
                 setReviews(data);
             });
         }, []);
+
             console.log(reviews);
+
             for(let i = 0; i < reviews.length; i++){
-                if(reviews[i].rating > topGame.rating){
+                if(reviews[i].rating > topGame.rating) {
+
                     secondGame.rating = topGame.rating;
                     secondGame.title = topGame.title;
                     secondGame.review = topGame.review;
+
                     topGame.rating = reviews[i].rating;
                     topGame.title = reviews[i].game_title;
                     topGame.review = reviews[i].review;
-                }else if(reviews[i].rating > secondGame.rating){
+
+                } else if(reviews[i].rating > secondGame.rating) {
+
                     secondGame.rating = reviews[i].rating;
                     secondGame.title = reviews[i].game_title;
                     secondGame.review = reviews[i].review;
+
                 }
             }
+
             console.log(topGame);
             console.log(secondGame);
 
             fetch("./games.json")
             .then(response => response.json())
             .then(games => getImages(games));
-        function getImages(games){
-            for (let i=0; i<games.gamesList.length; i++){
+
+        function getImages(games) {
+
+            for (let i=0; i<games.gamesList.length; i++) {
+
                 let title = games.gamesList[i].title;
                 let image = games.gamesList[i].imageUrl;
         
-                if(title = topGame.title){
+                if (title = topGame.title) {
                     imageTop = image;
                 }
-                if(title = secondGame.title){
+
+                if (title = secondGame.title) {
                     imageSecond = image;
                 }
             }
         }
-        return (<div>
+        return (
             <div>
-                <p>{topGame.title}: {topGame.rating}</p>
-                <img src={imageTop}></img>
-                <p>{topGame.review}</p>
+                <div>
+                    <p>{topGame.title}: {topGame.rating}</p>
+                    <img src={imageTop}></img>
+                    <p>{topGame.review}</p>
+                </div>
+                <div>
+                    <p>{secondGame.title}: {secondGame.rating}</p>
+                    <img src={imageSecond}></img>
+                    <p>{secondGame.review}</p>
+                </div>
             </div>
-            <div>
-                <p>{secondGame.title}: {secondGame.rating}</p>
-                <img src={imageSecond}></img>
-                <p>{secondGame.review}</p>
-            </div>
-        </div>);
+        );
     }
+
     const ViewGames = () => {
         //get code from midterm
     }
+
     const GameReviews = () => {
         //this page has buttons to viewgames, addreview, editreview and has the button to delete
         // Define hooks
@@ -107,6 +126,7 @@ function App(){
 
         </div>);*/
     }
+
     const AddReview = () => {
         // Define HOOKS
         /*const navigate = useNavigate();
@@ -178,6 +198,7 @@ function App(){
             </form>
         </div>);*/
     }
+
     const EditReview = () => {
         // Define HOOKS
         /*const navigate = useNavigate();
@@ -260,6 +281,7 @@ function App(){
             </form>
         </div>);*/
     }
+
     const AboutPage = () => {
 
     }
