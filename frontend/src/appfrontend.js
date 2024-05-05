@@ -376,6 +376,14 @@ function App(){
             rating: '',
             comments: ''
         });
+        const [reviews, setReviews] = useState([]);
+        useEffect(() => {
+            fetch("http://localhost:8081/reviews")
+            .then((response) => response.json())
+            .then((data) => {
+                setReviews(data);
+            });
+        }, []);
         // Function to add input in formData HOOK using operator ...
         const handleChange = (e) => {
             const { name, value } = e.target;
@@ -416,7 +424,7 @@ function App(){
             <button onClick={() => navigate('/GameReviews')}>Back</button>
             <form onSubmit={handleSubmit}>
             <h1>Post a New Review</h1>
-            <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="ID" required /> <br />
+            <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="id" required /> <br />
             <input type="text" name="rating" value={formData.rating} onChange={handleChange} placeholder="Rating ?/10" required /> <br />
             <input type="text" name="review" value={formData.review} onChange={handleChange} placeholder="Review" required /> <br />
             <button type="submit">Submit</button>
