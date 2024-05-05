@@ -351,13 +351,17 @@ function App(){
 
                 {/* Show all products using map */}
                 <div className="d-flex flex-row-reverse mt-2">
-                    <button className="bg-primary text-white p-3 m-2 rounded" onClick={() => navigate('/AddReview')}>+</button>
+                    <button className="bg-success text-white p-3 m-2 rounded" onClick={() => navigate('/AddReview')}>Add New Game Review <strong>+</strong></button>
                 </div>
                 <div>
                     <div className="album py-5">
                         <div className="row">{listReviews}</div>
                     </div>
                 </div>
+                <footer className="container bg-footer text-white">
+                    <p className="float-end"><a href="#">Back to top</a></p>
+                    <p>&copy; Daniel Nass &middot; David Scranton</p>
+                </footer>
         </div>)
     }
 
@@ -416,20 +420,77 @@ function App(){
                 alert('Error adding review:'+error.message); // Display alert if there's an error
             });
         }
-        return(<div style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
-            <header>
-                <button onClick={() => navigate('/GameReviews')}>Back</button>
-            </header>
-            <div>
-                <form onSubmit={handleSubmit}>
-                <h1 className="text-white">Post a New Review</h1>
-                <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="id" required /> <br />
-                <input type="text" name="rating" value={formData.rating} onChange={handleChange} placeholder="Rating ?/10" required /> <br />
-                <input type="text" name="review" value={formData.review} onChange={handleChange} placeholder="Review" required /> <br />
-                <button type="submit">Submit</button>
-                </form>
+        return(
+            <div style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
+                <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
+                    <nav className="bg-dark navbar navbar-expand-md navbar-dark fixed-top justify-content-center">
+                        <div className="container-fluid">
+                        <a href="/" className="navbar-brand align-items-center">Video Game Reviews</a>
+                            <ul className="nav nav-pills me-auto mb-2 mb-md-0">
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/Homepage')}>Home</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" onClick={() => navigate('/ViewGames')}>Games</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" onClick={() => navigate('/Aboutpage')}>About</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+                <main>
+                <div>
+                    <br/>
+                <button className="btn btn-light mb-2 p-2 m-3" onClick={() => navigate('/GameReviews')}>Back</button>
+                <section className="py-5 text-center container text-white">
+                    <div className="row bg-container py-lg-5">
+                        <div class="col-lg-6 col-md-8 mx-auto">
+                            <form onSubmit={handleSubmit}>
+                                <h1 className="text-white">Post a New Review</h1>
+                                <br/>
+                                <div class="form-group">
+                                    <input type="text" className="form-control" name="id" value={formData.id} onChange={handleChange} placeholder="id" required />
+                                    <small id="idHelp" className="form-text text-white">Please enter a review id. Don't reuse any other id numbers.</small>
+                                </div>
+                                <br/>
+                                <div class="form-group">
+                                    <input type="text" className="form-control" name="rating" value={formData.rating} onChange={handleChange} placeholder="Rating ?/10" required />
+                                    <small id="ratingHelp" className="form-text text-white">Please enter your numeral from 1-10 of the game here.</small>
+                                </div>
+                                <br/>
+                                <div class="form-group">
+                                    <input type="text" className="form-control" name="review" value={formData.review} onChange={handleChange} placeholder="Review" required />
+                                    <small id="reviewHelp" className="form-text text-white">Please enter review of the game here.</small>
+                                </div>
+                                <br/>
+                                <button className="btn btn-success mb-2" type="submit">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <footer className="container bg-footer text-white">
+                        <p className="float-end"><a href="#">Back to top</a></p>
+                        <p>&copy; Daniel Nass &middot; David Scranton</p>
+                    </footer>
+                    </main>
             </div>
-        </div>);
+        );
     }
 
     const Aboutpage = () => {
