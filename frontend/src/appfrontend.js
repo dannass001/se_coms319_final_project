@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
 import "./styles/vgReviews.css";
-import "./styles/bootstrap.bundle.min.js";
-import "./styles/bootstrap.bundle.min.js.map";
+// import "./styles/bootstrap.bundle.min.js";
+// import "./styles/bootstrap.bundle.min.js.map";
 import "./styles/bootstrap.min.css";
 import "./styles/bootstrap.min.css.map";
 import "./styles/bootstrap.rtl.min.css";
@@ -29,7 +29,6 @@ function App(){
             review: ''
         };
         const [reviews, setReviews] = useState([]);
-        const [games, setGames] = useState([]);
         useEffect(() => {
             fetch("http://localhost:8081/reviews")
             .then((response) => response.json())
