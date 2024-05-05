@@ -57,8 +57,11 @@ app.post("/reviews", async (req, res) => {
         
         const newDocument = {
             "id": Number(values[0]), // also "id": req.body.id,
-            "title": values[1], // also "name": req.body.name,
-            "image": values[2],
+            "game_title": values[1], // also "name": req.body.name,
+            "review": values[2],
+            "likes": Number(values[3]),
+            "rating": Number(values[4]),
+            "comments": values[5]
         };
         console.log(newDocument);
         const results = await db
@@ -99,9 +102,7 @@ app.put("/reviews/:id", async (req, res) => {
     console.log(req.body);
     const updateData = {
     $set:{
-        "id": Number(req.body.id), 
-        "title": req.body.title, 
-        "image": req.body.image,
+        "likes": req.body.likes
     }
     };
     // Add options if needed, for example { upsert: true } to create a document if it doesn't exist
