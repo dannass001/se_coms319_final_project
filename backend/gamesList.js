@@ -33,14 +33,14 @@ app.get("/games", async (req, res) => {
     res.send(results);
 });
 
-app.get("/games/:id", async (req, res) => {
-    const productid = Number(req.params.id);
+app.get("/games/:title", async (req, res) => {
+    const productid = req.params.title;
     console.log("Game to find :", productid);
     await client.connect();
 
     console.log("Node connected successfully to GET-id MongoDB");
 
-    const query = {"id": productid };
+    const query = {"title": productid };
     const results = await db.collection("gamesList")
     .findOne(query);
     

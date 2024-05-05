@@ -158,36 +158,78 @@ function App(){
     const GameReviews = () => {
         const navigate = useNavigate();
         const [reviews, setReviews] = useState([]);
-        const [games, setGames] = useState([]);
-        const [thisGame, setThisGame] = useState({
-            "id":'',
-            "title": '',
-            "year": '',
-            "image": ''
-        }); 
+        const [games, setGames] = useState([]); 
         useEffect(() => {
-            fetch("http://localhost:8081/reviews")
+            fetch("http://localhost:8081/reviews/" + currentGame)
             .then((response) => response.json())
             .then((data) => {
                 setReviews(data);
             });
-            fetch("http://localhost:8080/games")
+            fetch("http://localhost:8080/games/" + currentGame)
             .then((response) => response.json())
             .then((data) => {
                 setGames(data);
             });
-            for(let i = 0; i < games.length; i++){
-                if(games[i].title == currentGame){
-                    setThisGame(prevState => ({
-                        ...prevState,
-                        ["id"]: games[i].id,
-                        ["title"]: games[i].title,
-                        ["year"]: games[i].year,
-                        ["image"]: games[i].imageUrl
-                    }));
-                }
-            }
         }, []);
+
+        const addLike = (id, likes) => {
+            let formData = {
+                "likes": likes + 1,
+            }
+            fetch("http://localhost:8081/reviews/" + id, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            })
+            .then(response => {
+                if (response.status != 200){
+                    return response.json()
+                    .then(errData =>{
+                    throw new Error(`PUT response was not ok :\n Status:${response.status}. \n Error: ${errData.error}`);
+                    })
+                }
+                return response.json();
+            })
+            .then(data => {
+            console.log(data);
+            alert("Item changed successfully!");
+            })
+            .catch(error => {
+                console.error('Error changing item:', error);
+                alert('Error changing product:'+error.message); // Display alert if there's an error
+            });
+        }
+
+        const deleteReview = (id) => {
+            fetch("http://localhost:8081/reviews/" + id, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({"id":id}),
+            })
+            .then(response => {
+            if (response.status != 200){
+                return response.json()
+                .then(errData =>{
+                throw new Error(`POST response was not ok :\n Status:${response.status}. \n Error: ${errData.error}`);
+                })
+            }
+            return response.json();})
+            .then((data) => {
+                console.log("Delete a product completed : ", id);
+                console.log(data);
+                // reload products from the local products array
+                // show alert
+                if (data) {
+                    const key = Object.keys(data);
+                    const value = Object.values(data);
+                    alert(key+value);
+                }
+            })
+            .catch(error => {
+                console.error('Error adding item:', error);
+                alert('Error adding product:'+error.message); // Display alert if there's an error
+            });
+        }
 
         const listReviews = reviews.map((el) => (
             // GAMES
@@ -198,13 +240,12 @@ function App(){
                             <div class="row text-muted"><strong>{el.game_title}</strong></div>
                             <div class="row text-muted"><strong>{el.rating} / 10</strong></div>
                             <div class="row text-success lead fw-normal">{el.review}</div>
-                            <button>{el.likes}</button>
-                            <button>Delete</button>
+                            <button onClick={() => addLike(el.id, el.likes)}>{el.likes}</button>
+                            <button onClick={() => deleteReview(el.id)}>Delete</button>
                         </div>
                     </div>
                 </div>
         ));
-        console.log(thisGame);
         return(<div>
             {/* Buttons to show CRUD */}
             <header>
@@ -219,8 +260,11 @@ function App(){
                 </header>
                 {/* Show all products using map */}
                 <div class="row">
-                    <p>{thisGame.title}, {thisGame.year}</p>
-                    <img src={thisGame.image}></img>
+                    <p>{games.title}, {games.year}</p>
+                    <img src={games.imageUrl}></img>
+                </div>
+                <div>
+                    <button onClick={() => navigate('/AddReview')}>Add Review</button>
                 </div>
                 <div class="bg-white">
                     <div class="album py-5">
@@ -278,7 +322,7 @@ function App(){
             });
         }
         return(<div>
-            <button onClick={() => navigate('/Homepage')}>Back</button>
+            <button onClick={() => navigate('/GameReviews')}>Back</button>
             <form onSubmit={handleSubmit}>
             <h1>Post a New Review</h1>
             <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="ID" required /> <br />
