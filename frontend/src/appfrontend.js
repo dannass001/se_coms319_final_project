@@ -1,9 +1,20 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.css";
+import "./styles/vgReviews.css";
+import "./styles/bootstrap.bundle.min.js";
+import "./styles/bootstrap.bundle.min.js.map";
+import "./styles/bootstrap.min.css";
+import "./styles/bootstrap.min.css.map";
+import "./styles/bootstrap.rtl.min.css";
+import "./styles/bootstrap.rtl.min.css.map";
+import "./styles/color-modes.js";
 
 function App(){
     const Homepage  = () => {
-        //get code from midterm
+    
+        const navigate = useNavigate();
+
         let topGame = {
             title: '',
             rating: 0,
@@ -25,6 +36,15 @@ function App(){
             .then((response) => response.json())
             .then((data) => {
                 setReviews(data);
+            });
+        }, []);
+
+        const [games, setGames] = useState([]);
+        useEffect(() => {
+            fetch("http://localhost:8081/games")
+            .then((response) => response.json())
+            .then((data) => {
+                setGames(data);
             });
         }, []);
 
@@ -73,15 +93,114 @@ function App(){
                 }
             }
         }
+
+        const listGames = games.map((el) => (
+            // GAMES
+            <div class="col-md-3 text-white rounded" key={el.id}>
+                    <br/>
+                    <div class="card mb-4 box-shadow p-3 bg-light">
+                        <img class="card-img-top" style={{height:400}} src={el.image} alt="Card image cap"/>
+                        <div class="card-body">
+                            <div class="row text-muted"><strong>{el.title}</strong></div>
+                            <div class="row text-success lead fw-normal">Year: {el.year}</div>
+                        </div>
+                    </div>
+                </div>
+        ));
+
         return (
             <div>
-                
+                {/* Buttons to show CRUD */}
+                <header>
+                    <div class="navbar navbar-dark bg-primary box-shadow">
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Home')}>Home</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Games')}>Games</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/About')}>About</button>
+                        {/* <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
+                    </div>
+                </header>
+                {/* Show all products using map */}
+                <div class="bg-white">
+                    <div class="album py-5">
+                        <div class="row">{listGames}</div>
+                    </div>
+                </div>
             </div>
         );
     }
 
     const ViewGames = () => {
-        //get code from midterm
+
+        const navigate = useNavigate();
+
+        const [games, setGames] = useState([]);
+        useEffect(() => {
+            fetch("http://localhost:8081/games")
+            .then((response) => response.json())
+            .then((data) => {
+                setGames(data);
+            });
+        }, []);
+
+        fetch("./games.json")
+            .then(response => response.json())
+            .then(games => getImages(games));
+
+        function getImages(games) {
+
+            for (let i=0; i<games.gamesList.length; i++) {
+
+                let title = games.gamesList[i].title;
+                let image = games.gamesList[i].imageUrl;
+        
+                if (title = topGame.title) {
+                    imageTop = image;
+                }
+
+                if (title = secondGame.title) {
+                    imageSecond = image;
+                }
+            }
+        }
+        
+        const listGames = games.map((el) => (
+            // GAMES
+            <div class="col-md-3 text-white rounded" key={el.id}>
+                    <br/>
+                    <div class="card mb-4 box-shadow p-3 bg-light">
+                        <img class="card-img-top" style={{height:400}} src={el.image} alt="Card image cap"/>
+                        <div class="card-body">
+                            <div class="row text-muted"><strong>{el.title}</strong></div>
+                            <div class="row text-success lead fw-normal">Year: {el.year}</div>
+                        </div>
+                    </div>
+                </div>
+        ));
+
+        return (
+            <div>
+                {/* Buttons to show CRUD */}
+                <header>
+                    <div class="navbar navbar-dark bg-primary box-shadow">
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Home')}>Home</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/Games')}>Games</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/About')}>About</button>
+                        {/* <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
+                        <button class="bg-dark rounded p-2 m-3 text-white" onClick={() => navigate('/StudentInfo')}>Student Info</button> */}
+                    </div>
+                </header>
+                {/* Show all products using map */}
+                <div class="bg-white">
+                    <div class="album py-5">
+                        <div class="row">{listGames}</div>
+                    </div>
+                </div>
+            </div>
+        );
+
     }
 
     const GameReviews = () => {

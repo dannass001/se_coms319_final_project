@@ -81,10 +81,10 @@ body {
     }
   }
   
-  .bg-main {
+  /* .bg-main {
     background-image: url("myotherimages/carbon.jpg");
     background-repeat: repeat-y repeat-x; 
-  }
+  } */
 
   .bg-container {
     background-color: rgb(36, 32, 32);
