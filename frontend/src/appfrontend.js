@@ -68,7 +68,7 @@ function App(){
             // GAMES
             <div className="col-md-3 text-white rounded" key={el.id}>
                     <br/>
-                    <div className="card mb-4 box-shadow p-3 bg-light">
+                    <div className="card mb-4 box-shadow p-3 bg-container">
                         <img className="card-img-top" style={{height:400}} src={el.image} alt="Card image cap"/>
                         <div className="card-body">
                             <div className="row text-muted"><strong>{el.title}</strong></div>
@@ -188,9 +188,9 @@ function App(){
         }
         const listGames = games.map((el) => (
             // GAMES
-            <div className="col-md-3 text-white rounded" key={el.id}>
+            <div className="col-md-3 text-white" key={el.id}>
                     <br/>
-                    <div className="card mb-4 box-shadow p-3 bg-light">
+                    <div className="card mb-4 box-shadow p-3 bg-container">
                         <button onClick={() => ChangeGame(el.title)}>
                             <img className="card-img-top" style={{height:400}} src={el.image} alt="Card image cap"/>
                         </button>
@@ -203,7 +203,7 @@ function App(){
         ));
 
         return (
-            <div>
+            <div style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
                 {/* Buttons to show CRUD */}
                 <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
                     <nav className="bg-dark navbar navbar-expand-md navbar-dark fixed-top justify-content-center">
@@ -225,7 +225,7 @@ function App(){
                 </header>
                 {/* Show all products using map */}
                 <div className="bg-white">
-                    <div className="album py-5">
+                    <div className="album py-5" style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
                         <div className="row">{listGames}</div>
                     </div>
                 </div>
@@ -317,7 +317,7 @@ function App(){
             // GAMES
             <div className="col-md-3 text-white rounded" key={el.id}>
                     <br/>
-                    <div className="card mb-4 box-shadow p-3 bg-light">
+                    <div className="card mb-4 box-shadow p-3 bg-container">
                         <div className="card-body">
                             <div className="row text-muted"><strong>{el.game_title}</strong></div>
                             <div className="row text-muted"><strong>{el.rating} / 10</strong></div>
@@ -328,7 +328,7 @@ function App(){
                     </div>
                 </div>
         ));
-        return(<div>
+        return(<div style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
             {/* Buttons to show CRUD */}
             <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
                     <nav className="bg-dark navbar navbar-expand-md navbar-dark fixed-top justify-content-center">
@@ -437,7 +437,7 @@ function App(){
                                 <a className="nav-link" onClick={() => navigate('/Homepage')}>Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" onClick={() => navigate('/ViewGames')}>Reviews</a>
+                                <a className="nav-link" onClick={() => navigate('/ViewGames')}>Games</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link active" aria-current="page" onClick={() => navigate('/Aboutpage')}>About</a>
