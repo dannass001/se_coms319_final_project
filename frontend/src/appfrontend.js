@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import { Container, Row, Col } from "react-bootstrap";
 
 function App(){
     const [currentGame, setCurrentGame] = useState("Minecraft");
