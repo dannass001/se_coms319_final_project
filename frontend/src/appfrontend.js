@@ -79,7 +79,7 @@ function App(){
         ));
 
         return (
-            <div>
+            <div style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
                 <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/"></link>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
                 <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
@@ -101,8 +101,8 @@ function App(){
                     </nav>
                 </header>
 
-                <main className="bg-dark">
-                    <div id="myCarousel" className="carousel slide mb-6 bg-carousel" data-bs-ride="carousel" style={{background: "rgba(0, 0, 34)"}}>
+                <main>
+                    <div id="myCarousel" className="carousel slide mb-6 bg-carousel" data-bs-ride="carousel">
                         <div className="carousel-indicators">
                         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -142,7 +142,7 @@ function App(){
                 {/* <!-- Featurettes ============================================================= -->
                 <!-- Wrap the rest of the page in another container to center all the content. --> */}
 
-                <div className="container marketing bg-light p-2">
+                <div className="container marketing bg-container p-5 text-white">
 
                     {/* <!-- START THE FEATURETTES --> */}
 
@@ -162,10 +162,10 @@ function App(){
                 <br/>
                 <br/>
                 </main>
-                <footer className="container bg-footer">
-              <p className="float-end"><a href="#">Back to top</a></p>
-              <p>&copy; Daniel Nass &middot; David Scranton</p>
-            </footer>
+                <footer className="container bg-footer text-white">
+                    <p className="float-end"><a href="#">Back to top</a></p>
+                    <p>&copy; Daniel Nass &middot; David Scranton</p>
+                </footer>
                 
             </div>
         );
@@ -229,6 +229,11 @@ function App(){
                         <div className="row">{listGames}</div>
                     </div>
                 </div>
+
+                <footer className="container bg-footer text-white">
+                    <p className="float-end"><a href="#">Back to top</a></p>
+                    <p>&copy; Daniel Nass &middot; David Scranton</p>
+                </footer>
             </div>);
     }
 
@@ -422,7 +427,7 @@ function App(){
     const Aboutpage = () => {
         const navigate = useNavigate();
         return(
-            <div>
+            <div style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
                 <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
                     <nav className="bg-dark navbar navbar-expand-md navbar-dark fixed-top justify-content-center">
                         <div className="container-fluid">
@@ -441,6 +446,59 @@ function App(){
                         </div>
                     </nav>
                 </header>
+
+                <main className="bg-main">
+
+                <section class="py-5 text-center container text-white">
+                    <div class="row py-lg-5">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                        <h1>About</h1>
+                        <h2 class="fw-light">SE/ComS319 Construction of User Interfaces, Spring 2024</h2>
+                    </div>
+                    </div>
+                </section>
+
+                    <div class="container marketing">
+
+                        {/* <!-- START THE FEATURETTES --> */}
+
+                        <hr class="featurette-divider" style={{color:"white"}}/>
+
+                        <div class="row featurette bg-container">
+                        <div class="col-md-7 text-white">
+                            <h2 class="featurette-heading fw-normal lh-1"><span class="text-body-">Daniel Nass</span></h2>
+                            <p class="lead">drnass@iastate.edu</p>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="myotherimages/dan.png"/>
+                        </div>
+                        </div>
+
+                        <hr class="featurette-divider" style={{color:"white"}}/>
+
+                        <div class="row featurette bg-container">
+                        <div class="col-md-7 order-md-2 text-white">
+                            <h2 class="featurette-heading fw-normal lh-1"><span class="text-body-">David Scranton</span></h2>
+                            <p class="lead">dscranto@iastate.edu</p>
+                        </div>
+                        <div class="col-md-5 order-md-1">
+                            <img src="myotherimages/davey.jpeg"/>
+                        </div>
+                        </div>
+
+                        <hr class="featurette-divider" style={{color:"white"}}/>
+
+                        {/* <!-- /END THE FEATURETTES --> */}
+
+                    </div>
+
+
+                    {/* <!-- FOOTER --> */}
+                    <footer className="container bg-footer text-white">
+                        <p className="float-end"><a href="#">Back to top</a></p>
+                        <p>&copy; Daniel Nass &middot; David Scranton</p>
+                    </footer>
+                </main>
             </div>
         );
     }
