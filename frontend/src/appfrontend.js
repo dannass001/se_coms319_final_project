@@ -18,19 +18,18 @@ function App(){
         let topGame = {
             title: '',
             rating: 0,
+            image: '',
             review: ''
         };
 
         let secondGame = {
             title: '',
             rating: 0,
+            image: '',
             review: ''
         };
-
-        var imageTop;
-        var imageSecond;
-
         const [reviews, setReviews] = useState([]);
+        const [games, setGames] = useState([]);
         useEffect(() => {
             fetch("http://localhost:8081/reviews")
             .then((response) => response.json())
@@ -206,27 +205,27 @@ function App(){
     const GameReviews = () => {
         //this page has buttons to viewgames, addreview, editreview and has the button to delete
         // Define hooks
-        /*const [products, setProducts] = useState([]);
+        /*const [reviews, setReviews] = useState([]);
         const navigate = useNavigate();
         // useEffect to load products when load page
         useEffect(() => {
             fetch("http://localhost:8081/fakestore")
             .then((response) => response.json())
             .then((data) => {
-            console.log("Show Catalog of Products :", data);
-            setProducts(data);
+            console.log("Show Catalog of Reviews :", data);
+            setReviews(data);
             });
         }, []);
             
         return (<div>
-            <button onClick={() => navigate('/getcatalog')}>GET Catalog</button>
+            <button onClick={() => navigate('/Homepage')}>GET Catalog</button>
             <button onClick={() => navigate('/getcatalogid')}>GET Item by Id</button>
-            <button onClick={() => navigate('/postcatalog')}>POST a new Item</button>
-            <button onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
+            <button onClick={() => navigate('/AddReview')}>POST a new Item</button>
+            <button onClick={() => navigate('/AboutPage')}>PUT (modify) an Item</button>
             <button onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
             {products.map((el) => (
             <div key={el.id}>
-            <img src={el.image} alt="product" width={30} />
+            <img src={el.image} width={30} />
             <div>Title: {el.title}</div>
             <div>Category: {el.category}</div>
             <div>Price: {el.price}</div>
@@ -239,18 +238,14 @@ function App(){
 
     const AddReview = () => {
         // Define HOOKS
-        /*const navigate = useNavigate();
+        const navigate = useNavigate();
         const [formData, setFormData] = useState({
-            id: '',
-            title: '',
-            price: '',
-            description: '',
-            category: '',
-            image: '',
-            rating: {
-                rate: '',
-                count: 1
-            }
+            id: 21,
+            game_title: '',
+            review: '',
+            likes: 0,
+            rating: '',
+            comments: ''
         });
         // Function to add input in formData HOOK using operator ...
         const handleChange = (e) => {
@@ -265,7 +260,7 @@ function App(){
         const handleSubmit = (e) => {
             e.preventDefault();
             console.log(e.target.value);
-            fetch("http://localhost:8081/fakestore", {
+            fetch("http://localhost:8081/reviews", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
@@ -281,32 +276,23 @@ function App(){
             })
             .then(data => {
             console.log(data);
-            alert("Item added successfully!");
+            alert("Review added successfully!");
             })
             .catch(error => {
                 console.error('Error adding item:', error);
-                alert('Error adding product:'+error.message); // Display alert if there's an error
+                alert('Error adding review:'+error.message); // Display alert if there's an error
             });
         }
-        //needs to return page to gamereviews after adding
         return(<div>
-            <button onClick={() => navigate('/getcatalog')}>GET Catalog</button>
-            <button onClick={() => navigate('/getcatalogid')}>GET Item by Id</button>
-            <button onClick={() => navigate('/postcatalog')}>POST a new Item</button>
-            <button onClick={() => navigate('/putcatalog')}>PUT (modify) an Item</button>
-            <button onClick={() => navigate('/deletecatalog')}>DELETE an Item</button>
+            <button onClick={() => navigate('/GameReviews')}>Back</button>
             <form onSubmit={handleSubmit}>
-            <h1>Post a New Product</h1>
-            <input type="text" name="id" value={formData.id} onChange={handleChange} placeholder="ID" required /> <br />
-            <input type="text" name="title" value={formData.title} onChange={handleChange} placeholder="Title" required /> <br />
-            <input type="text" name="price" value={formData.price} onChange={handleChange} placeholder="Price" required /> <br />
-            <input type="text" name="description" value={formData.description} onChange={handleChange} placeholder="Description" required /> <br />
-            <input type="text" name="category" value={formData.category} onChange={handleChange} placeholder="Category" required /> <br />
-            <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" required /> <br />
-            <input type="text" name="rating" value={formData.rating.rate} onChange={handleChange} placeholder="Rating" required /> <br />
+            <h1>Post a New Review</h1>
+            <input type="text" name="game_title" value={formData.game_title} onChange={handleChange} placeholder="Game" required /> <br />
+            <input type="text" name="rating" value={formData.rating} onChange={handleChange} placeholder="Rating ?/10" required /> <br />
+            <input type="text" name="review" value={formData.review} onChange={handleChange} placeholder="Review" required /> <br />
             <button type="submit">Submit</button>
             </form>
-        </div>);*/
+        </div>);
     }
 
     const EditReview = () => {
@@ -398,12 +384,12 @@ function App(){
     return (
         <Router>
             <Routes>
-                <Route path="/homepage" element={<Homepage />} />
-                <Route path="/viewgames" element={<ViewGames />} />
-                <Route path="/gamereviews" element={<GameReviews />} />
-                <Route path="/addreview" element={<AddReview />} />
-                <Route path="/editreview" element={<EditReview />} />
-                <Route path="/aboutpage" element={<AboutPage />} />
+                <Route path="/Homepage" element={<Homepage />} />
+                <Route path="/ViewGames" element={<ViewGames />} />
+                <Route path="/GameReviews" element={<GameReviews />} />
+                <Route path="/AddReview" element={<AddReview />} />
+                <Route path="/EditReview" element={<EditReview />} />
+                <Route path="/AboutPage" element={<AboutPage />} />
                 <Route path="/" element={<Homepage />} /> {/* Default view */}
             </Routes>
         </Router>
