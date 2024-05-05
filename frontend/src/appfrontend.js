@@ -496,6 +496,20 @@ function App(){
 
                         <hr class="featurette-divider" style={{color:"white"}}/>
 
+                        <div class="row featurette bg-container">
+                        <div class="col-md-7 text-white">
+                            <h2 class="featurette-heading fw-normal lh-1"><span class="text-body-">SE/COMS319 Construction of User Interfaces, Spring 2024</span></h2>
+                            <p class="lead">5/5/24</p>
+                            <p class="lead">Dr.Abraham N. Aldaco Gastelum, aaldaco@iastate.edu</p>
+                            <p class="lead">Dr.Ali Jannesari, jannesar@iastate.edu</p>
+                        </div>
+                        <div class="col-md-5">
+                            <img src="myotherimages/dan.png"/>
+                        </div>
+                        </div>
+
+                        <hr class="featurette-divider" style={{color:"white"}}/>
+
                         {/* <!-- /END THE FEATURETTES --> */}
 
                     </div>
