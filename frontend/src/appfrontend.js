@@ -79,7 +79,7 @@ function App(){
         ));
 
         return (
-            <div style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
+            <div style={{backgroundImage: "url('team97_final/backend/myotherimages/carbon.jpg')"}}>
                 <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/"></link>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
                 <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
@@ -152,7 +152,7 @@ function App(){
                         <p className="lead" style={{padding: "2%"}}>Please enjoy our reviews on our <a style={{color:"blue"}} onClick={() => navigate('/ViewGames')}>Games Page</a>.</p>
                     </div>
                     <div className="col-md-5">
-                        <img className="img-fluid" width="100%" height="100%" src="myotherimages/gaming.png"></img>
+                        <img className="img-fluid" width="100%" height="100%" src="./backend/images/gaming.png"></img>
                     </div>
                     </div>
 
