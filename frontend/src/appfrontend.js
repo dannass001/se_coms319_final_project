@@ -323,8 +323,8 @@ function App(){
                             <div className="row text-dark"><strong>{el.game_title}: {el.rating}/10</strong></div>
                             <div className="row text-white"><em>{el.review}</em></div>
                             <div className="d-flex flex-row-reverse">
-                                <button className="m-1 rounded bg-white" onClick={() => deleteReview(el.id)}>Delete</button>
-                                <button className="m-1 rounded bg-white" onClick={() => addLike(el.id, el.likes)}>{el.likes}</button>
+                                <button className="m-1 rounded bg-danger" onClick={() => deleteReview(el.id)}>Delete</button>
+                                <button className="m-1 rounded bg-success" onClick={() => addLike(el.id, el.likes)}>+{el.likes}</button>
                             </div>
                         </div>
                     </div>
