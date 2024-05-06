@@ -1,0 +1,220 @@
+[{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28e1"
+  },
+  "id": 1,
+  "game_title": "Helldivers 2",
+  "review": "Helldivers offers exhilarating cooperative gameplay with its challenging missions and strategic depth, making every mission a thrilling test of teamwork and tactics.",
+  "likes": 6577,
+  "rating": 3,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28e2"
+  },
+  "id": 2,
+  "game_title": "Minecraft",
+  "review": "Minecraft captivates with its boundless creativity, offering endless possibilities for exploration, construction, and adventure in its blocky yet immersive world.",
+  "likes": 87567,
+  "rating": 2,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28e3"
+  },
+  "id": 3,
+  "game_title": "Legend of Zelda",
+  "review": "Legend of Zelda: Breath of the Wild revolutionizes open-world gaming, seamlessly blending exploration, inventive puzzle-solving, and breathtaking vistas into an unforgettable journey through Hyrule.",
+  "rating": 1,
+  "comments": "",
+  "likes": 15
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28e4"
+  },
+  "id": 4,
+  "game_title": "Fallout 4",
+  "review": "Fallout 4 delivers a vast, post-apocalyptic playground filled with rich storytelling, immersive world-building, and endless opportunities for exploration and survival amidst the nuclear wasteland.",
+  "likes": 7657,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28e5"
+  },
+  "id": 5,
+  "game_title": "Persona 3 Reload",
+  "review": "Persona 3 Reload delivers a captivating blend of dungeon crawling, social simulation, and an emotionally resonant narrative, making it a must-play for fans of JRPGs and storytelling alike.",
+  "likes": 765,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28e6"
+  },
+  "id": 6,
+  "game_title": "Baldur's Gate 3",
+  "review": "Baldur's Gate 3 merges classic RPG mechanics with stunning visuals and intricate storytelling, offering players a deeply immersive journey through a richly detailed fantasy world filled with tough choices and epic encounters.",
+  "likes": 567,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28e7"
+  },
+  "id": 7,
+  "game_title": "Guilty Gear Strive",
+  "review": "Guilty Gear Strive unleashes a visually stunning and technically refined fighting experience, combining intricate mechanics with breathtaking visuals to deliver an electrifying entry in the renowned franchise.",
+  "likes": 75,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28e8"
+  },
+  "id": 8,
+  "game_title": "Terraria",
+  "review": "Terraria offers an addictive blend of exploration, crafting, and combat, providing players with endless opportunities for creativity and adventure in its procedurally generated pixelated world.",
+  "likes": 6757,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28e9"
+  },
+  "id": 9,
+  "game_title": "Grand Theft Auto V",
+  "review": "Grand Theft Auto 5 immerses players in a sprawling, vibrant open world teeming with activities, memorable characters, and a gripping narrative, solidifying its status as a modern gaming masterpiece.",
+  "likes": 8788,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28ea"
+  },
+  "id": 10,
+  "game_title": "Team Fortress 2",
+  "review": "Team Fortress 2 is a timeless multiplayer classic, blending fast-paced action, distinct character classes, and hilarious humor into a endlessly entertaining experience that continues to captivate players after years of release.",
+  "likes": 65,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28eb"
+  },
+  "id": 11,
+  "game_title": "Elden Ring",
+  "review": "Elden Ring masterfully combines FromSoftware's signature challenging gameplay with George R.R. Martin's rich storytelling, crafting a mesmerizing open-world adventure filled with mystery, danger, and awe-inspiring landscapes, setting a new standard for the action RPG genre.",
+  "likes": 23,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28ec"
+  },
+  "id": 12,
+  "game_title": "Palworld",
+  "review": "Palworld ingeniously blends resource management, creature collecting, and open-world exploration, offering a delightful and unexpectedly deep experience where players bond with adorable creatures while navigating the complexities of survival and human-animal relationships.",
+  "likes": 34,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28ed"
+  },
+  "id": 13,
+  "game_title": "Dead by Daylight",
+  "review": "Dead by Daylight delivers heart-pounding asymmetrical multiplayer gameplay, where every match is an intense struggle for survival or a thrilling pursuit of prey, offering endless replayability and spine-chilling moments of terror.",
+  "likes": 45,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28ee"
+  },
+  "id": 14,
+  "game_title": "The Sims 4",
+  "review": "The Sims 4 provides a virtual sandbox where players can unleash their creativity, shape the lives of their Sims, and craft intricate stories in a vibrant and customizable world, offering endless opportunities for simulation and expression.",
+  "likes": 456,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28ef"
+  },
+  "id": 15,
+  "game_title": "Don't Starve Together",
+  "review": "Don't Starve Together presents a challenging yet addictively fun cooperative survival experience, where players must navigate a whimsically dark world, gather resources, and fend off dangers together, fostering teamwork and creativity in the face of ever-present threats.",
+  "likes": 349,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28f0"
+  },
+  "id": 16,
+  "game_title": "Red Dead Redemption 2",
+  "review": "Red Dead Redemption 2 immerses players in an epic tale of outlaws and redemption set against the backdrop of the American frontier, offering a breathtakingly vast open world, rich storytelling, and unparalleled attention to detail, making it a true masterpiece of interactive storytelling.",
+  "likes": 90493,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28f1"
+  },
+  "id": 17,
+  "game_title": "Lethal Company",
+  "review": "Lethal Company delivers a gripping narrative-driven experience, blending strategic decision-making with intense action sequences and moral dilemmas, offering players a thrilling journey through the shadowy world of corporate espionage and intrigue.",
+  "likes": 44,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28f2"
+  },
+  "id": 18,
+  "game_title": "Rocket League",
+  "review": "Rocket League ignites pure adrenaline-fueled excitement with its unique blend of fast-paced soccer and vehicular mayhem, offering addictive gameplay, skill-based competition, and endless opportunities for jaw-dropping aerial maneuvers and epic saves.",
+  "likes": 134,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28f3"
+  },
+  "id": 19,
+  "game_title": "Project Zomboid",
+  "review": "Project Zomboid plunges players into a harrowing fight for survival in a zombie-infested world, where every decision matters and every moment is fraught with tension, offering a relentlessly immersive and unforgiving experience that will test your wits and resourcefulness to the limit.",
+  "likes": 314,
+  "rating": 1,
+  "comments": ""
+},
+{
+  "_id": {
+    "$oid": "6636af5b8bfba1c9b3cd28f4"
+  },
+  "id": 20,
+  "game_title": "Cyberpunk 2077",
+  "review": "Cyberpunk 2077 promises a futuristic open-world playground brimming with dazzling neon and gripping narratives, yet its launch was marred by technical issues, overshadowing its ambitious scope and potential for immersive storytelling.",
+  "likes": 342,
+  "rating": 1,
+  "comments": ""
+}]
