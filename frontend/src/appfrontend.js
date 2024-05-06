@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+
+// Bootstrap styling imports
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/js/bootstrap.bundle.js.map";
@@ -79,7 +81,7 @@ function App(){
         ));
 
         return (
-            <div style={{backgroundImage: "url('team97_final/backend/myotherimages/carbon.jpg')"}}>
+            <div style={{backgroundImage: "url('./myotherimages/carbon.jpg')"}}>
                 <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/"></link>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"/>
                 <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
@@ -152,7 +154,7 @@ function App(){
                         <p className="lead" style={{padding: "2%"}}>Please enjoy our reviews on our <a style={{color:"blue"}} onClick={() => navigate('/ViewGames')}>Games Page</a>.</p>
                     </div>
                     <div className="col-md-5">
-                        <img className="img-fluid" width="100%" height="100%" src="./backend/images/gaming.png"></img>
+                        <img className="img-fluid" width="100%" height="100%" src={'./myotherimages/gaming.png'} alt=""></img>
                     </div>
                     </div>
 
@@ -188,7 +190,7 @@ function App(){
         }
         const listGames = games.map((el) => (
             // GAMES
-            <div className="col-3 text-white">
+            <div className="col-3 text-white" key={el.id}>
                     <br/>
                     <div className="mb-4 box-shadow p-3 bg-container" key={el.id}>
                         <button onClick={() => ChangeGame(el.title)}>
@@ -202,7 +204,7 @@ function App(){
         ));
 
         return (
-            <div style={{backgroundImage: "url('myotherimages/carbon.jpg')"}}>
+            <div style={{backgroundImage: "url('./myotherimages/carbon.jpg')"}}>
                 {/* Buttons to show CRUD */}
                 <header data-bs-theme="dark d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom">
                     <nav className="bg-dark navbar navbar-expand-md navbar-dark fixed-top justify-content-center">
@@ -446,21 +448,21 @@ function App(){
                 <button className="btn btn-light mb-2 p-2 m-3" onClick={() => navigate('/GameReviews')}>Back</button>
                 <section className="py-5 text-center container text-white">
                     <div className="row bg-container py-lg-5">
-                        <div class="col-lg-6 col-md-8 mx-auto">
+                        <div className="col-lg-6 col-md-8 mx-auto">
                             <form onSubmit={handleSubmit}>
                                 <h1 className="text-white">Post a New Review</h1>
                                 <br/>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <input type="text" className="form-control" name="id" value={formData.id} onChange={handleChange} placeholder="id" required />
                                     <small id="idHelp" className="form-text text-white">Please enter a review id. Don't reuse any other id numbers.</small>
                                 </div>
                                 <br/>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <input type="text" className="form-control" name="rating" value={formData.rating} onChange={handleChange} placeholder="Rating ?/10" required />
                                     <small id="ratingHelp" className="form-text text-white">Please enter your numeral from 1-10 of the game here.</small>
                                 </div>
                                 <br/>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <input type="text" className="form-control" name="review" value={formData.review} onChange={handleChange} placeholder="Review" required />
                                     <small id="reviewHelp" className="form-text text-white">Please enter review of the game here.</small>
                                 </div>
@@ -518,58 +520,58 @@ function App(){
 
                 <main className="bg-main">
 
-                <section class="py-5 text-center container text-white">
-                    <div class="row py-lg-5">
-                    <div class="col-lg-6 col-md-8 mx-auto">
+                <section className="py-5 text-center container text-white">
+                    <div className="row py-lg-5">
+                    <div className="col-lg-6 col-md-8 mx-auto">
                         <h1>About</h1>
-                        <h2 class="fw-light">SE/ComS319 Construction of User Interfaces, Spring 2024</h2>
+                        <h2 className="fw-light">SE/ComS319 Construction of User Interfaces, Spring 2024</h2>
                     </div>
                     </div>
                 </section>
 
-                    <div class="container marketing">
+                    <div className="container marketing">
 
                         {/* <!-- START THE FEATURETTES --> */}
 
-                        <hr class="featurette-divider" style={{color:"white"}}/>
+                        <hr className="featurette-divider" style={{color:"white"}}/>
 
-                        <div class="row featurette bg-container">
-                        <div class="col-md-7 text-white">
-                            <h2 class="featurette-heading fw-normal lh-1"><span class="text-body-">Daniel Nass</span></h2>
-                            <p class="lead">drnass@iastate.edu</p>
+                        <div className="row featurette bg-container">
+                        <div className="col-md-7 text-white">
+                            <h2 className="featurette-heading fw-normal lh-1"><span className="text-body-">Daniel Nass</span></h2>
+                            <p className="lead">drnass@iastate.edu</p>
                         </div>
-                        <div class="col-md-5">
+                        <div className="col-md-5">
                             <img src="myotherimages/dan.png"/>
                         </div>
                         </div>
 
-                        <hr class="featurette-divider" style={{color:"white"}}/>
+                        <hr className="featurette-divider" style={{color:"white"}}/>
 
-                        <div class="row featurette bg-container">
-                        <div class="col-md-7 order-md-2 text-white">
-                            <h2 class="featurette-heading fw-normal lh-1"><span class="text-body-">David Scranton</span></h2>
-                            <p class="lead">dscranto@iastate.edu</p>
+                        <div className="row featurette bg-container">
+                        <div className="col-md-7 order-md-2 text-white">
+                            <h2 className="featurette-heading fw-normal lh-1"><span className="text-body-">David Scranton</span></h2>
+                            <p className="lead">dscranto@iastate.edu</p>
                         </div>
-                        <div class="col-md-5 order-md-1">
+                        <div className="col-md-5 order-md-1">
                             <img src="myotherimages/davey.jpeg"/>
                         </div>
                         </div>
 
-                        <hr class="featurette-divider" style={{color:"white"}}/>
+                        <hr className="featurette-divider" style={{color:"white"}}/>
 
-                        <div class="row featurette bg-container">
-                        <div class="col-md-7 text-white">
-                            <h2 class="featurette-heading fw-normal lh-1"><span class="text-body-">SE/COMS319 Construction of User Interfaces, Spring 2024</span></h2>
-                            <p class="lead">5/5/24</p>
-                            <p class="lead">Dr.Abraham N. Aldaco Gastelum, aaldaco@iastate.edu</p>
-                            <p class="lead">Dr.Ali Jannesari, jannesar@iastate.edu</p>
+                        <div className="row featurette bg-container">
+                        <div className="col-md-7 text-white">
+                            <h2 className="featurette-heading fw-normal lh-1"><span className="text-body-">SE/COMS319 Construction of User Interfaces, Spring 2024</span></h2>
+                            <p className="lead">5/5/24</p>
+                            <p className="lead">Dr.Abraham N. Aldaco Gastelum, aaldaco@iastate.edu</p>
+                            <p className="lead">Dr.Ali Jannesari, jannesar@iastate.edu</p>
                         </div>
-                        <div class="col-md-5">
+                        <div className="col-md-5">
                             
                         </div>
                         </div>
 
-                        <hr class="featurette-divider" style={{color:"white"}}/>
+                        <hr className="featurette-divider" style={{color:"white"}}/>
 
                         {/* <!-- /END THE FEATURETTES --> */}
 
